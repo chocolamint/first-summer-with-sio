@@ -1,0 +1,4 @@
+{
+    "git.ignoreLimitWarning": true,
+    "typescript.tsdk": "src/hanabi/node_modules/typescript/lib"
+}
