@@ -19,7 +19,13 @@
     font-size: 5vw;
     font-weight: bold;
     line-height: 5vw;
-    border-bottom: dashed 2px rgba(255, 255, 255, 0.8);
+}
+
+.SpecialThanks p {
+    font-size: 3vw;
+    margin: 0;
+    padding: 0.7em 0;
+    color: rgba(255, 255, 255, 0.8);
 }
 
 .SpecialThanks h2 {
@@ -29,6 +35,7 @@
     font-size: 4vw;
     line-height: 4vw;
     font-weight: normal;
+    border-top: dashed 2px rgba(255, 255, 255, 0.8);
 }
 
 .SpecialThanks ul,

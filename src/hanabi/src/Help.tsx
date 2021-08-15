@@ -8,6 +8,9 @@ export default function Help() {
     return visible ?
         (<div className="SpecialThanks">
             <h1>♡しおとはじめてのはなびたいかい♡</h1>
+            <p>
+                V汐りんと一緒に花火大会に行った気分を味わうなの♡
+            </p>
             <h2>Special Thanks (Ｕ´ ' ᴗ &lt;`Ｕ)ミ☆</h2>
             <ul>
                 <li><a href="https://ja.reactjs.org/" target="_blank">React</a></li>
