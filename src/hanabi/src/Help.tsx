@@ -30,12 +30,8 @@ export default function Help() {
                 <li><a href="https://github.com/chocolamint/first-summer-with-sio" target="_blank" rel="noreferrer">GitHub Repository</a></li>
             </ul>
             <div className="CloseButton">
-                <button className="HideSpecialThanksButton" onClick={toggleVisible}>とじる</button>
+                <button className="HideSpecialThanksButton" onClick={() => setVisible(false)}>とじる</button>
             </div>
         </div>) :
-        (<button className="ShowSpecialThanksButton" onClick={toggleVisible} />);
-
-    function toggleVisible() {
-        setVisible(!visible);
-    }
+        (<button className="ShowSpecialThanksButton" onClick={() => setVisible(true)} />);
 }
