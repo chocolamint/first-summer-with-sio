@@ -19,7 +19,7 @@ export default function Help() {
             <p>
                 V汐りんと一緒に花火大会に行った気分を味わうなの♡
             </p>
-            <h2>Special Thanks (Ｕ´ ' ᴗ &lt;`Ｕ)ミ☆</h2>
+            <h2>Special Thanks <span className="emoticon">(Ｕ´ ' ᴗ &lt;`Ｕ)ミ☆</span></h2>
             <ul>
                 {specialThanks.map(x => <li><a href={x[0]} target="_blank">{x[1]}</a></li>)}
             </ul>
