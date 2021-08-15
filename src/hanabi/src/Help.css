@@ -9,6 +9,8 @@
     padding: 2vmin;
     border-radius: 1vmin;
     font-size: 1vmin;
+    max-height: calc(100% - 8vmin);
+    overflow: auto;
 }
 
 .SpecialThanks h1 {
@@ -24,13 +26,13 @@
 .SpecialThanks p {
     font-size: 370%;
     margin: 0;
-    padding: 0.7em 0 4vmin;
+    padding: 0.7em 0 1vmin;
     color: rgba(255, 255, 255, 0.8);
 }
 
 .SpecialThanks h2 {
-    margin: 0;
-    padding: 4vmin 0 1vmin;
+    margin: 3vmin 0 0;
+    padding: 3vmin 0 1vmin;
     color: rgba(255, 255, 255, 0.8);
     font-size: 450%;
     line-height: 4vmin;
