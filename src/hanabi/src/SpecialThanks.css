@@ -1,7 +1,33 @@
 .SpecialThanks {
     position: absolute;
-    left: 1vw;
-    top: 1vh;
-    right: 1vw;
-    bottom: 1vh;
+    left: 2vw;
+    top: 2vh;
+    right: 2vw;
+    bottom: 2vh;
+}
+
+.ShowSpecialThanksButton {
+    position: absolute;
+    top: 2vh;
+    right: 2vw;
+    height: 70px;
+    width: 70px;
+    background: transparent;
+    appearance: none;
+    border: solid white 5px;
+    border-radius: 35px;
+    opacity: 0.5;
+    cursor: pointer;
+}
+
+.ShowSpecialThanksButton::after {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    content: '?';
+    color: white;
+    display: block;
+    font-size: 45px;
 }
