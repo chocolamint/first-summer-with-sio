@@ -21,7 +21,7 @@ export default function Help() {
             </p>
             <h2>Special Thanks <span className="emoticon">(Ｕ´ ' ᴗ &lt;`Ｕ)ミ☆</span></h2>
             <ul>
-                {specialThanks.map(x => <li><a href={x[0]} target="_blank">{x[1]}</a></li>)}
+                {specialThanks.map(x => <li><a href={x[0]} target="_blank" rel="noreferrer">{x[1]}</a></li>)}
             </ul>
             <div className="CloseButton">
                 <button className="HideSpecialThanksButton" onClick={toggleVisible}>とじる</button>
