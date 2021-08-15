@@ -2,7 +2,7 @@ import { randomNumber, randomInt } from "Random";
 import { useEffect, useState } from "react";
 
 export default function useSioMessage() {
-    const [message, setMessage] = useState(['', -1, false] as [string, number, boolean]);
+    const [message, setMessage] = useState({ message: '', index: -1, isTarking: false });
 
     useEffect(() => {
 
@@ -61,16 +61,16 @@ export default function useSioMessage() {
                 let nextIndex: number;
                 do {
                     nextIndex = randomInt(sioMessages.length);
-                } while (nextIndex === prev[1]);
-                return [sioMessages[nextIndex], nextIndex, true];
+                } while (nextIndex === prev.index);
+                return { message: sioMessages[nextIndex], index: nextIndex, isTarking: true };
             });
             const end = setTimeout(() => {
-                setMessage(prev => [prev[0], prev[1], false]);
+                setMessage(prev => ({ message: prev.message, index: prev.index, isTarking: false }));
                 clearTimeout(end);
             }, 3000);
         }, nextBalloonTimeout);
         return () => clearTimeout(start);
     }, [message]);
 
-    return { message: message[0], isTalking: message[2] };
+    return { message: message.message, isTalking: message.isTarking };
 }
