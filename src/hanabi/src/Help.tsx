@@ -4,6 +4,12 @@ import 'Help.css';
 export default function Help() {
 
     const [visible, setVisible] = useState(false);
+    const specialThanks = [
+        ['https://ja.reactjs.org/', 'React'],
+        ['https://qiita.com/iNaoki04/items/5d420440cf3d89f54f82', 'JavaScriptで花火を作ってみよう！'],
+        ['https://hp.vector.co.jp/authors/VA039499/#hui', 'ふい字'],
+        ['http://customtemplate.blog112.fc2.com/blog-entry-143.html', '日本語フリーフォントの「ふい字」をWEBフォントで活用しよう！'],
+    ] as [string, string][];
 
     return visible ?
         (<div className="SpecialThanks">
@@ -13,8 +19,7 @@ export default function Help() {
             </p>
             <h2>Special Thanks (Ｕ´ ' ᴗ &lt;`Ｕ)ミ☆</h2>
             <ul>
-                <li><a href="https://ja.reactjs.org/" target="_blank">React</a></li>
-                <li><a href="https://qiita.com/iNaoki04/items/5d420440cf3d89f54f82" target="_blank">JavaScriptで花火を作ってみよう！</a></li>
+                {specialThanks.map(x => <li><a href={x[0]} target="_blank">{x[1]}</a></li>)}
             </ul>
             <div className="CloseButton">
                 <button className="HideSpecialThanksButton" onClick={toggleVisible}>とじる</button>
