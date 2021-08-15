@@ -1,10 +1,25 @@
 .SioBalloon {
     background: rgba(255, 159, 159, 0.3);
     color: white;
-    padding: 2vh 2vw;
+    padding: 0 2vw;
     border-radius: 0.7vw;
     font-size: 3vh;
     border: rgba(255, 255, 255, 0.3) double;
+    transition-property: opacity;
+    transition-delay: 0ms;
+    transition-duration: 200ms;
+    height: 8vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.SioBalloon.show {
+    opacity: 1;
+}
+
+.SioBalloon.hide {
+    opacity: 0;
 }
 
 /* 吹き出しの三角部分 */

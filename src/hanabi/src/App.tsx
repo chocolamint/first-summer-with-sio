@@ -13,7 +13,7 @@ function App() {
     'わたあめ食べたいなの～♡'
   ];
 
-  const nextBalloonTimeout = randomNumber(5000, 15000);
+  const nextBalloonTimeout = randomNumber(6000, 15000);
 
   useEffect(() => {
     const start = setTimeout(() => {
@@ -21,7 +21,7 @@ function App() {
       const end = setTimeout(() => {
         setDialogue('');
         clearTimeout(end);
-      }, 2000);
+      }, 3000);
     }, nextBalloonTimeout);
     return () => clearTimeout(start);
   });
@@ -29,7 +29,7 @@ function App() {
   return (
     <div className="App">
       <canvas></canvas>
-      {dialogue === '' ? <></> : <SioBalloon dialogue={dialogue} />}
+      <SioBalloon dialogue={dialogue} isVisible={dialogue !== ''} />
     </div>
   );
 }
