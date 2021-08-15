@@ -1,8 +1,8 @@
-import { randomNumber, pickRandom } from "Random";
+import { randomNumber, randomInt } from "Random";
 import { useEffect, useState } from "react";
 
 export default function useSioDialogue() {
-    const [dialogue, setDialogue] = useState(null as string | null);
+    const [dialogue, setDialogue] = useState([null, -1] as [string | null, number]);
 
     const sioDialogues = [
         '綺麗なのな～(Ｕ///\'ᴗ\'///Ｕ)',
@@ -55,14 +55,21 @@ export default function useSioDialogue() {
 
     useEffect(() => {
         const start = setTimeout(() => {
-            setDialogue(pickRandom(sioDialogues));
+            setDialogue(prev => {
+                // 前回と同じ値は返さないようにする（連続で同じセリフが出るのを防ぐ）
+                let nextIndex: number;
+                do {
+                    nextIndex = randomInt(sioDialogues.length);
+                } while (nextIndex === prev[1]);
+                return [sioDialogues[nextIndex], nextIndex];
+            });
             const end = setTimeout(() => {
-                setDialogue(null);
+                setDialogue(prev => [null, prev[1]]);
                 clearTimeout(end);
             }, 3000);
         }, nextBalloonTimeout);
         return () => clearTimeout(start);
     }, [dialogue]);
 
-    return dialogue;
+    return dialogue[0];
 }

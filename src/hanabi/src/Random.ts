@@ -1,8 +1,6 @@
-export function pickRandom<T>(arr: T[]) {
+export function randomInt(max: number) {
     const min = 0;
-    const max = Math.floor(arr.length);
-    const index = Math.floor(Math.random() * (max - min) + min);
-    return arr[index];
+    return Math.floor(Math.random() * (max - min) + min);
 }
 
 export function randomNumber(min: number, max: number) {
