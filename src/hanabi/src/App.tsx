@@ -13,7 +13,6 @@ function App() {
       <header>
         <Help />
       </header>
-      <canvas></canvas>
       <SioBalloon dialogue={sioDialogue.message} isVisible={sioDialogue.isVisible} />
     </div>
   );
