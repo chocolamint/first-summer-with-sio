@@ -9,4 +9,5 @@
   position: absolute;
   right: 2vw;
   bottom: 4vh;
+  z-index: 1;
 }
