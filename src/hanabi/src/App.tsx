@@ -13,6 +13,8 @@ function App() {
     'わたあめ食べたいなの～♡'
   ];
 
+  const nextBalloonTimeout = randomNumber(5000, 15000);
+
   useEffect(() => {
     const start = setTimeout(() => {
       setDialogue(pickRandom(sioDialogues));
@@ -20,7 +22,7 @@ function App() {
         setDialogue('');
         clearTimeout(end);
       }, 2000);
-    }, 4000);
+    }, nextBalloonTimeout);
     return () => clearTimeout(start);
   });
 
@@ -38,5 +40,10 @@ function pickRandom<T>(arr: T[]) {
   const index = Math.floor(Math.random() * (max - min) + min);
   return arr[index];
 }
+
+function randomNumber(min: number, max: number) {
+  return Math.random() * (max - min) + min;
+}
+
 
 export default App;
