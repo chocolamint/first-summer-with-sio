@@ -1,12 +1,12 @@
 import { randomNumber, randomInt } from "Random";
 import { useEffect, useState } from "react";
 
-export default function useSioDialogue() {
-    const [dialogue, setDialogue] = useState(['', -1, false] as [string, number, boolean]);
+export default function useSioMessage() {
+    const [message, setMessage] = useState(['', -1, false] as [string, number, boolean]);
 
     useEffect(() => {
 
-        const sioDialogues = [
+        const sioMessages = [
             '綺麗なのな～<span class="emoticon">(Ｕ///\'ᴗ\'///Ｕ)</span>',
             'はわはわ<span class="emoticon">₍₍ ◝(Ｕ^ᴗ^Ｕ)◞ ₎₎</span>',
             'しお、わたあめ食べたいなの～♡',
@@ -56,21 +56,21 @@ export default function useSioDialogue() {
         const nextBalloonTimeout = randomNumber(6000, 15000);
 
         const start = setTimeout(() => {
-            setDialogue(prev => {
+            setMessage(prev => {
                 // 前回と同じ値は返さないようにする（連続で同じセリフが出るのを防ぐ）
                 let nextIndex: number;
                 do {
-                    nextIndex = randomInt(sioDialogues.length);
+                    nextIndex = randomInt(sioMessages.length);
                 } while (nextIndex === prev[1]);
-                return [sioDialogues[nextIndex], nextIndex, true];
+                return [sioMessages[nextIndex], nextIndex, true];
             });
             const end = setTimeout(() => {
-                setDialogue(prev => [prev[0], prev[1], false]);
+                setMessage(prev => [prev[0], prev[1], false]);
                 clearTimeout(end);
             }, 3000);
         }, nextBalloonTimeout);
         return () => clearTimeout(start);
-    }, [dialogue]);
+    }, [message]);
 
-    return { message: dialogue[0], isVisible: dialogue[2] };
+    return { message: message[0], isTalking: message[2] };
 }

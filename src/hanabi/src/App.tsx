@@ -1,19 +1,19 @@
 import 'App.css';
-import useSioDialogue from 'useSioDialogue';
+import useSioMessage from 'useSioMessage';
 import 'SioBalloon';
 import SioBalloon from 'SioBalloon';
 import Help from 'Help';
 
 function App() {
 
-  const sioDialogue = useSioDialogue();
+  const sioMessage = useSioMessage();
 
   return (
     <div className="App">
       <header>
         <Help />
       </header>
-      <SioBalloon dialogue={sioDialogue.message} isVisible={sioDialogue.isVisible} />
+      <SioBalloon dialogue={sioMessage.message} isVisible={sioMessage.isTalking} />
     </div>
   );
 }
