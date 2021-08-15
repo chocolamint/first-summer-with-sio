@@ -27,7 +27,11 @@ V汐りんと一緒に花火大会に行った気分になれるあぷりなの�
 
 ## らいせんす
 
-らいせんすについては詳しくないなのから、参考になるこーどは自由に使っての♡
+この ぷろぐらむ は [MITライセンス](https://opensource.org/licenses/mit-license.php) で公開してまる(Ｕ⌒▽⌒Ｕ)参考になるこーどは自由に使っての♡
+
+Copyright &copy; 2021 しゃるしぃ  
+Released under the MIT license  
+https://opensource.org/licenses/mit-license.php
 
 ただし、下記のリンク先を参考に作ってまるから、その辺りは参考元のらいせんす等に従ってほしいなの(Ｕ ˘ᴗ˘ Ｕ)よろしくの
 
