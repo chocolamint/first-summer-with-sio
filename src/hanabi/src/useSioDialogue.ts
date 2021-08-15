@@ -2,53 +2,53 @@ import { randomNumber, randomInt } from "Random";
 import { useEffect, useState } from "react";
 
 export default function useSioDialogue() {
-    const [dialogue, setDialogue] = useState(['', -1] as [string, number]);
+    const [dialogue, setDialogue] = useState(['', -1, false] as [string, number, boolean]);
 
     const sioDialogues = [
-        '綺麗なのな～<code>(Ｕ///\'ᴗ\'///Ｕ)</code>',
-        'はわはわ<code>₍₍ ◝(Ｕ^ᴗ^Ｕ)◞ ₎₎</code>',
+        '綺麗なのな～<span class="emoticon">(Ｕ///\'ᴗ\'///Ｕ)</span>',
+        'はわはわ<span class="emoticon">₍₍ ◝(Ｕ^ᴗ^Ｕ)◞ ₎₎</span>',
         'しお、わたあめ食べたいなの～♡',
-        'はわ～<code>(Ｕ \'ᴗ\' Ｕ)</code>',
+        'はわ～<span class="emoticon">(Ｕ \'ᴗ\' Ｕ)</span>',
         'また来年も来ようの♡',
-        '花火は儚いなのな～<code>(Ｕ ˘ᴗ˘ Ｕ)</code>',
-        '花火しゅきしゅき<code>(Ｕ ∩\'ᴗ\'///Ｕ)</code>♡',
-        'きみと来られて嬉しまる<code>(Ｕ///\'ᴗ\'///Ｕ)</code>',
-        '楽しいなの～<code>(Ｕ⌒▽⌒Ｕ三Ｕ⌒▽⌒Ｕ)</code>',
+        '花火は儚いなのな～<span class="emoticon">(Ｕ ˘ᴗ˘ Ｕ)</span>',
+        '花火しゅきしゅき<span class="emoticon">(Ｕ ∩\'ᴗ\'///Ｕ)</span>♡',
+        'きみと来られて嬉しまる<span class="emoticon">(Ｕ///\'ᴗ\'///Ｕ)</span>',
+        '楽しいなの～<span class="emoticon">(Ｕ⌒▽⌒Ｕ三Ｕ⌒▽⌒Ｕ)</span>',
         'しおのこと…ずっとしゅきしゅきしてての？♡',
-        '色んなお色がありまるね～<code>(Ｕ \'ᴗ\' Ｕ)</code>',
-        '帰りたくないなのな～<code>(Ｕ´･_･`Ｕ)</code>',
+        '色んなお色がありまるね～<span class="emoticon">(Ｕ \'ᴗ\' Ｕ)</span>',
+        '帰りたくないなのな～<span class="emoticon">(Ｕ´･_･`Ｕ)</span>',
         'しおね、打ち上げ花火観るの産まれて初めてなの～♡',
-        '迫力がありまるね～<code>(((Ｕ\'o\'Ｕ)))</code>',
-        '夜風が涼しまる<code>(Ｕ ˘ᴗ˘ Ｕ)</code>',
-        'タコしんでまる～？<code>（ \'ᴗ\'ＵΞＵ\'ᴗ\'）</code>',
+        '迫力がありまるね～<span class="emoticon">(((Ｕ\'o\'Ｕ)))</span>',
+        '夜風が涼しまる<span class="emoticon">(Ｕ ˘ᴗ˘ Ｕ)</span>',
+        'タコしんでまる～？<span class="emoticon">（ \'ᴗ\'ＵΞＵ\'ᴗ\'）</span>',
         'あとでたこ焼き食べようの♡',
-        'しおと花火、どっちが綺麗？<code>(Ｕ∩ \'ᴗ\' ∩Ｕ)</code>',
-        '人の記憶は儚いなのけど、今日のことは絶対に忘れないなの<code>(Ｕ>_<Ｕ)</code>',
-        'なてゅ！来てまるね！<code>(Ｕ⌒▽⌒Ｕ)</code>',
-        'かき氷冷たいなの～<code>(Ｕ>_<Ｕ)</code>',
-        'しおの浴衣似合ってまる？<code>ε(Ｕ^ᴗ^Ｕ)з</code>',
-        'あとでうーぱーるぱー釣りしたまるー！<code>(Ｕ>_<Ｕ)</code>',
-        'しおはいま幸せってわけ<code>(Ｕ´ \' ᴗ <`Ｕ)ミ☆</code>',
-        'お昼に行った水族館、あざらしが可愛かったなのな～<code>(Ｕ ˘ᴗ˘ Ｕ)</code>',
-        'さっきから汐のことばかり見て、花火ちゃんと観てまる？<code>(Ｕ¬_¬Ｕ)</code>',
-        'いぇいはわいぇい<code>₍₍ ◝(Ｕ^ᴗ^Ｕ)◞ ₎₎</code>',
-        'た～まや～<code>(Ｕ⌒▽⌒Ｕ)</code>',
-        '今日は連れてきてくれてありがとうの<code>(Ｕ ∩\'ᴗ\'///Ｕ)</code>♡',
+        'しおと花火、どっちが綺麗？<span class="emoticon">(Ｕ∩ \'ᴗ\' ∩Ｕ)</span>',
+        '人の記憶は儚いなのけど、今日のことは絶対に忘れないなの<span class="emoticon">(Ｕ>_<Ｕ)</span>',
+        'なてゅ！来てまるね！<span class="emoticon">(Ｕ⌒▽⌒Ｕ)</span>',
+        'かき氷冷たいなの～<span class="emoticon">(Ｕ>_<Ｕ)</span>',
+        'しおの浴衣似合ってまる？<span class="emoticon">ε(Ｕ^ᴗ^Ｕ)з</span>',
+        'あとでうーぱーるぱー釣りしたまるー！<span class="emoticon">(Ｕ>_<Ｕ)</span>',
+        'しおはいま幸せってわけ<span class="emoticon">(Ｕ´ \' ᴗ <`Ｕ)ミ☆</span>',
+        'お昼に行った水族館、あざらしが可愛かったなのな～<span class="emoticon">(Ｕ ˘ᴗ˘ Ｕ)</span>',
+        'さっきから汐のことばかり見て、花火ちゃんと観てまる？<span class="emoticon">(Ｕ¬_¬Ｕ)</span>',
+        'いぇいはわいぇい<span class="emoticon">₍₍ ◝(Ｕ^ᴗ^Ｕ)◞ ₎₎</span>',
+        'た～まや～<span class="emoticon">(Ｕ⌒▽⌒Ｕ)</span>',
+        '今日は連れてきてくれてありがとうの<span class="emoticon">(Ｕ ∩\'ᴗ\'///Ｕ)</span>♡',
         'いいなてゅの想い出になったなの～♡',
-        'よく観える場所が取れてよかったなのな<code>(Ｕ ˘ᴗ˘ Ｕ)</code>',
-        'いつまでもこんな時間が続きますように<code>(Ｕ \'人\' Ｕ)</code>',
-        '...<code>(Ｕ ∩\'ᴗ\'///Ｕ)</code>♡',
-        '今日はきみのために特別な浴衣で来たなの<code>(Ｕ ∩\'ᴗ\'///Ｕ)</code>♡',
-        'もうすぐ終わっちゃうの寂しまるね<code>(Ｕ´･ω･`Ｕ)</code>',
-        'お祭り楽しかったね<code>(Ｕ∩ \'ᴗ\' ∩Ｕ)</code>',
+        'よく観える場所が取れてよかったなのな<span class="emoticon">(Ｕ ˘ᴗ˘ Ｕ)</span>',
+        'いつまでもこんな時間が続きますように<span class="emoticon">(Ｕ \'人\' Ｕ)</span>',
+        '...<span class="emoticon">(Ｕ ∩\'ᴗ\'///Ｕ)</span>♡',
+        '今日はきみのために特別な浴衣で来たなの<span class="emoticon">(Ｕ ∩\'ᴗ\'///Ｕ)</span>♡',
+        'もうすぐ終わっちゃうの寂しまるね<span class="emoticon">(Ｕ´･ω･`Ｕ)</span>',
+        'お祭り楽しかったね<span class="emoticon">(Ｕ∩ \'ᴗ\' ∩Ｕ)</span>',
         'りんご飴は恋するりんご色♡',
-        'ずぅっと観てても飽きないなのな～<code>(Ｕ \'ᴗ\' Ｕ)</code>',
-        'はじめてのなてゅをきみと過ごせてよかったなの<code>(Ｕ ∩\'ᴗ\'///Ｕ)</code>♡',
+        'ずぅっと観てても飽きないなのな～<span class="emoticon">(Ｕ \'ᴗ\' Ｕ)</span>',
+        'はじめてのなてゅをきみと過ごせてよかったなの<span class="emoticon">(Ｕ ∩\'ᴗ\'///Ｕ)</span>♡',
         'しおもきみのこと......///',
-        'きみの甚平似合ってまるよ<code>₍₍ ◝(Ｕ^ᴗ^Ｕ)◞ ₎₎</code>',
-        'しおね、花火が散って儚く消えていくところがしゅきしゅき<code>(Ｕ ˘ᴗ˘ Ｕ)</code>',
+        'きみの甚平似合ってまるよ<span class="emoticon">₍₍ ◝(Ｕ^ᴗ^Ｕ)◞ ₎₎</span>',
+        'しおね、花火が散って儚く消えていくところがしゅきしゅき<span class="emoticon">(Ｕ ˘ᴗ˘ Ｕ)</span>',
         'いつかちゃいちぃな花火も一緒にしようの♡',
-        'あ、向こうの方に赤がいまる！かわいまるねぇ<code>(Ｕ∩ \'ᴗ\' ∩Ｕ)</code>'
+        'あ、向こうの方に赤がいまる！かわいまるねぇ<span class="emoticon">(Ｕ∩ \'ᴗ\' ∩Ｕ)</span>'
     ];
 
     const nextBalloonTimeout = randomNumber(6000, 15000);
@@ -61,15 +61,15 @@ export default function useSioDialogue() {
                 do {
                     nextIndex = randomInt(sioDialogues.length);
                 } while (nextIndex === prev[1]);
-                return [sioDialogues[nextIndex], nextIndex];
+                return [sioDialogues[nextIndex], nextIndex, true];
             });
             const end = setTimeout(() => {
-                setDialogue(prev => [prev[0], prev[1]]);
+                setDialogue(prev => [prev[0], prev[1], false]);
                 clearTimeout(end);
             }, 3000);
         }, nextBalloonTimeout);
         return () => clearTimeout(start);
     }, [dialogue]);
 
-    return dialogue[0];
+    return { message: dialogue[0], isVisible: dialogue[2] };
 }

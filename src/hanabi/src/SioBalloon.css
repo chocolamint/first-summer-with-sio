@@ -8,9 +8,7 @@
     transition-property: opacity;
     transition-delay: 0ms;
     transition-duration: 200ms;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    text-align: center;
 }
 
 .SioBalloon.show {
