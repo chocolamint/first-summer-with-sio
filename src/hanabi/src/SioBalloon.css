@@ -7,10 +7,8 @@
     border: rgba(255, 255, 255, 0.3) double;
     transition-property: opacity;
     transition-delay: 0ms;
-    transition-duration: 200ms;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    transition-duration: 500ms;
+    text-align: center;
 }
 
 .SioBalloon.show {
