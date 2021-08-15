@@ -1,41 +1,41 @@
 .SpecialThanks {
     position: absolute;
-    left: 2vw;
-    top: 2vw;
-    right: 2vw;
+    left: 2vmin;
+    top: 2vmin;
+    right: 2vmin;
     background: rgba(40, 40, 40, 0.7);
     border: 4px white double;
     z-index: 1;
-    padding: 2vw;
-    border-radius: 1vw;
-    font-size: 3vw;
+    padding: 2vmin;
+    border-radius: 1vmin;
+    font-size: 1vmin;
 }
 
 .SpecialThanks h1 {
     margin: 0;
-    padding: 2vw 0 2vw;
+    padding: 2vmin 0 2vmin;
     text-align: center;
     color: rgba(255, 255, 255, 0.8);
-    font-size: 5vw;
+    font-size: 500%;
     font-weight: bold;
-    line-height: 5vw;
+    line-height: 5vmin;
 }
 
 .SpecialThanks p {
-    font-size: 3.5vw;
+    font-size: 370%;
     margin: 0;
-    padding: 0.7em 0 4vw;
+    padding: 0.7em 0 4vmin;
     color: rgba(255, 255, 255, 0.8);
 }
 
 .SpecialThanks h2 {
     margin: 0;
-    padding: 4vw 0 1vw;
+    padding: 4vmin 0 1vmin;
     color: rgba(255, 255, 255, 0.8);
-    font-size: 4vw;
-    line-height: 4vw;
+    font-size: 450%;
+    line-height: 4vmin;
     font-weight: normal;
-    border-top: dashed 0.4vw rgba(255, 255, 255, 0.8);
+    border-top: dashed 0.4vmin rgba(255, 255, 255, 0.8);
 }
 
 .SpecialThanks ul,
@@ -43,8 +43,11 @@
     margin: 0;
     padding: 0;
     list-style: none;
-    font-size: 3.5vw;
     line-height: 2em;
+}
+
+.SpecialThanks li {
+    font-size: 400%;
 }
 
 .SpecialThanks li::before {
@@ -55,13 +58,13 @@
 
 .SpecialThanks li a {
     text-decoration: none;
-    border-bottom: dotted rgba(255, 200, 200, 0.8) 0.3vw;
+    border-bottom: dotted rgba(255, 200, 200, 0.8) 0.3vmin;
     color: rgba(255, 200, 200, 0.8);
 }
 
 .SpecialThanks .CloseButton {
     text-align: right;
-    padding: 2vw 0 0;
+    padding: 2vmin 0 0;
 }
 
 .SpecialThanks .CloseButton button {
@@ -70,8 +73,8 @@
     cursor: pointer;
     border: 2px rgba(255, 255, 255, 0.8) solid;
     padding: 0.4em 1em;
-    font-size: 3vw;
-    border-radius: 1vw;
+    font-size: 450%;
+    border-radius: 1vmin;
     color: rgba(255, 255, 255, 0.8);
     font-weight: bold;
     font-family: 'HuiFontP109';
@@ -79,8 +82,8 @@
 
 .ShowSpecialThanksButton {
     position: absolute;
-    top: 3vw;
-    right: 4vw;
+    top: 3vmin;
+    right: 4vmin;
     height: 40px;
     width: 40px;
     background: transparent;
