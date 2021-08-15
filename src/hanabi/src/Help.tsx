@@ -9,6 +9,8 @@ export default function Help() {
         ['https://qiita.com/iNaoki04/items/5d420440cf3d89f54f82', 'JavaScriptで花火を作ってみよう！'],
         ['https://hp.vector.co.jp/authors/VA039499/#hui', 'ふい字'],
         ['http://customtemplate.blog112.fc2.com/blog-entry-143.html', '日本語フリーフォントの「ふい字」をWEBフォントで活用しよう！'],
+        ['https://illustrator-works.com/illust/fireworks/', 'イラストレーターで花火を描こう！'],
+        ['https://ao-system.net/favicon/', 'ファビコン favicon.icoを作ろう!'],
     ] as [string, string][];
 
     return visible ?
