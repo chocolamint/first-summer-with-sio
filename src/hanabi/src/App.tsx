@@ -3,6 +3,7 @@ import useSioMessage from 'useSioMessage';
 import 'SioBalloon';
 import SioBalloon from 'SioBalloon';
 import Help from 'Help';
+import TalkButton from 'TalkButton';
 
 function App() {
 
@@ -13,6 +14,7 @@ function App() {
       <header>
         <Help />
       </header>
+      <TalkButton />
       <SioBalloon dialogue={sioMessage.message} isVisible={sioMessage.isTalking} />
     </div>
   );
