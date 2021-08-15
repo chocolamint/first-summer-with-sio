@@ -1,0 +1,22 @@
+.SioBalloon {
+    background: rgba(255, 159, 159, 0.3);
+    color: white;
+    padding: 2vh 2vw;
+    border-radius: 0.7vw;
+    font-size: 3vh;
+    border: rgba(255, 255, 255, 0.3) double;
+}
+
+/* 吹き出しの三角部分 */
+.SioBalloon::before {
+    content: '';
+    position: absolute;
+    left: 1vw;
+    bottom: calc(-3vh - 2px);
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 3vh 3vh 0 0;
+    border-color: rgba(255, 159, 159, 0.3) transparent transparent transparent;
+    transform: skewX(-30deg);
+}
