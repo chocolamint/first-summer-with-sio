@@ -2,6 +2,7 @@ import 'App.css';
 import useSioDialogue from 'useSioDialogue';
 import 'SioBalloon';
 import SioBalloon from 'SioBalloon';
+import SpecialThanks from 'SpecialThanks';
 
 function App() {
 
@@ -9,6 +10,9 @@ function App() {
 
   return (
     <div className="App">
+      <header>
+        <SpecialThanks />
+      </header>
       <canvas></canvas>
       <SioBalloon dialogue={sioDialogue} />
     </div>
