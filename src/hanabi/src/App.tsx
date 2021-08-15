@@ -1,8 +1,11 @@
 import 'App.css';
+import { useEffect, useState } from 'react';
 import 'SioBalloon';
 import SioBalloon from 'SioBalloon';
 
 function App() {
+
+  const [dialogue, setDialogue] = useState('');
 
   const sioDialogues = [
     '綺麗なのな～(Ｕ///\'ᴗ\'///Ｕ)',
@@ -10,12 +13,21 @@ function App() {
     'わたあめ食べたいなの～♡'
   ];
 
-  const dialogue = pickRandom(sioDialogues);
+  useEffect(() => {
+    const start = setTimeout(() => {
+      setDialogue(pickRandom(sioDialogues));
+      const end = setTimeout(() => {
+        setDialogue('');
+        clearTimeout(end);
+      }, 2000);
+    }, 4000);
+    return () => clearTimeout(start);
+  });
 
   return (
     <div className="App">
       <canvas></canvas>
-      <SioBalloon dialogue={dialogue} />
+      {dialogue === '' ? <></> : <SioBalloon dialogue={dialogue} />}
     </div>
   );
 }
