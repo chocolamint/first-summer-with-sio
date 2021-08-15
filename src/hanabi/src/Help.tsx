@@ -23,6 +23,12 @@ export default function Help() {
             <ul>
                 {specialThanks.map(x => <li><a href={x[0]} target="_blank" rel="noreferrer">{x[1]}</a></li>)}
             </ul>
+            <h2>このあぷりけーしょんについて</h2>
+            <ul>
+                <li>Copyright &copy; 2021 しゃるしぃ</li>
+                <li>Released under the <a href="https://opensource.org/licenses/mit-license.php" target="_blank" rel="noreferrer">MIT License</a></li>
+                <li><a href="https://github.com/chocolamint/first-summer-with-sio" target="_blank" rel="noreferrer">GitHub Repository</a></li>
+            </ul>
             <div className="CloseButton">
                 <button className="HideSpecialThanksButton" onClick={toggleVisible}>とじる</button>
             </div>
