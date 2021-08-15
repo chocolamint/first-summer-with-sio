@@ -1,7 +1,7 @@
 import { useState } from "react";
-import 'SpecialThanks.css';
+import 'Help.css';
 
-export default function SpecialThanks() {
+export default function Help() {
 
     const [visible, setVisible] = useState(false);
 
