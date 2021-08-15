@@ -10,7 +10,7 @@ function App() {
   return (
     <div className="App">
       <canvas></canvas>
-      <SioBalloon dialogue={sioDialogue} isVisible={sioDialogue !== ''} />
+      <SioBalloon dialogue={sioDialogue} />
     </div>
   );
 }

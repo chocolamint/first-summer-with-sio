@@ -2,7 +2,7 @@ import { randomNumber, pickRandom } from "Random";
 import { useEffect, useState } from "react";
 
 export default function useSioDialogue() {
-    const [dialogue, setDialogue] = useState('');
+    const [dialogue, setDialogue] = useState(null as string | null);
 
     const sioDialogues = [
         '綺麗なのな～(Ｕ///\'ᴗ\'///Ｕ)',
@@ -16,7 +16,7 @@ export default function useSioDialogue() {
         const start = setTimeout(() => {
             setDialogue(pickRandom(sioDialogues));
             const end = setTimeout(() => {
-                setDialogue('');
+                setDialogue(null);
                 clearTimeout(end);
             }, 3000);
         }, nextBalloonTimeout);
