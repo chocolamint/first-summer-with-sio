@@ -18,25 +18,44 @@ function App() {
 
   const [isTalkPanelVisible, setIsTalkPanelVisible] = useState(false);
   const [familyMessage, setFamilyMessage] = useState(null as FamilyMessage | null);
-  const [siorinState, setSiorinState] = useState({ message: '' as SioMessage | SioResponse, talkingToken: null as NodeJS.Timeout | null });
+  const [siorinMessage, setSiorinMessage] = useState('' as SioMessage | SioResponse);
+  const [isBalloonVisible, setIsBalloonVisible] = useState(false);
+  const [lastMessageTimestamp, setLastMessageTimestamp] = useState(0);
 
   useEffect(() => {
 
     const nextBalloonTimeout = familyMessage ? 400 : randomNumber(6000, 15000);
 
+    let message: SioMessage | SioResponse;
+    if (familyMessage !== null) {
+      const responses = sioResponses[familyMessage];
+      const nextIndex = randomInt(responses.length);
+      message = responses[nextIndex];
+    } else {
+      const nextIndex = randomInt(sioMessages.length);
+      message = sioMessages[nextIndex];
+    }
+
+    const balloonDuration = 3000;
+
+    // 吹き出しを出す
     const start = setTimeout(() => {
-      setSiorinState(() => {
-        const messages = familyMessage ? sioResponses[familyMessage] : sioMessages;
-        const nextIndex = randomInt(messages.length);
-        return { message: messages[nextIndex], talkingToken: start };
-      });
-      const end = setTimeout(() => {
-        setSiorinState(prev => ({ message: prev.message, talkingToken: null }));
-        clearTimeout(end);
-      }, 3000);
+      if (lastMessageTimestamp > Date.now() - balloonDuration || isTalkPanelVisible) {
+        return;
+      }
+      setSiorinMessage(message);
+      setLastMessageTimestamp(Date.now());
+      setIsBalloonVisible(true);
+      // 吹き出しを消す
+      setTimeout(() => {
+        setFamilyMessage(null);
+        setIsBalloonVisible(false);
+      }, balloonDuration);
     }, nextBalloonTimeout);
+
     return () => clearTimeout(start);
-  }, [siorinState]);
+
+  }, [familyMessage, siorinMessage, isBalloonVisible, isTalkPanelVisible, lastMessageTimestamp]);
 
   return (
     <div className="App">
@@ -45,7 +64,7 @@ function App() {
       </header>
       <TalkButton onClick={() => setIsTalkPanelVisible(true)} />
       <TalkPanel isVisible={isTalkPanelVisible} onTalk={msg => { setFamilyMessage(msg); setIsTalkPanelVisible(false); }} onCanceled={() => setIsTalkPanelVisible(false)} />
-      <SioBalloon message={siorinState.message} isVisible={siorinState.talkingToken !== null} />
+      <SioBalloon message={siorinMessage} isVisible={isBalloonVisible} />
     </div>
   );
 }
