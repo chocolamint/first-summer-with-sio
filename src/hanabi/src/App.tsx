@@ -18,25 +18,25 @@ function App() {
 
   const [isTalkPanelVisible, setIsTalkPanelVisible] = useState(false);
   const [familyMessage, setFamilyMessage] = useState(null as FamilyMessage | null);
-  const [message, setMessage] = useState({ message: '' as SioMessage | SioResponse, isTalking: false });
+  const [siorinState, setSiorinState] = useState({ message: '' as SioMessage | SioResponse, isTalking: false });
 
   useEffect(() => {
 
     const nextBalloonTimeout = familyMessage ? 400 : randomNumber(6000, 15000);
 
     const start = setTimeout(() => {
-      setMessage(() => {
+      setSiorinState(() => {
         const messages = familyMessage ? sioResponses[familyMessage] : sioMessages;
         const nextIndex = randomInt(messages.length);
         return { message: messages[nextIndex], isTalking: true };
       });
       const end = setTimeout(() => {
-        setMessage(prev => ({ message: prev.message, isTalking: false }));
+        setSiorinState(prev => ({ message: prev.message, isTalking: false }));
         clearTimeout(end);
       }, 3000);
     }, nextBalloonTimeout);
     return () => clearTimeout(start);
-  }, [message]);
+  }, [siorinState]);
 
   return (
     <div className="App">
@@ -45,7 +45,7 @@ function App() {
       </header>
       <TalkButton onClick={() => setIsTalkPanelVisible(true)} />
       <TalkPanel isVisible={isTalkPanelVisible} onTalk={msg => { setFamilyMessage(msg); setIsTalkPanelVisible(false); }} onCanceled={() => setIsTalkPanelVisible(false)} />
-      <SioBalloon dialogue={message.message} isVisible={message.isTalking} />
+      <SioBalloon message={siorinState.message} isVisible={siorinState.isTalking} />
     </div>
   );
 }
