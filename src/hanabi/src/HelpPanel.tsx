@@ -1,9 +1,7 @@
-import { useState } from "react";
-import 'Help.css';
+import 'HelpPanel.css';
 
-export default function Help() {
+export default function HelpPanel(props: { isVisible: boolean, onCloseButtonClick: () => void }) {
 
-    const [visible, setVisible] = useState(false);
     const specialThanks = [
         ['https://ja.reactjs.org/', 'React'],
         ['https://qiita.com/iNaoki04/items/5d420440cf3d89f54f82', 'JavaScriptで花火を作ってみよう！'],
@@ -17,8 +15,8 @@ export default function Help() {
         ['http://ogimage.tsmallfield.com/', 'OGP画像シミュレータ']
     ] as [string, string][];
 
-    return visible ?
-        (<div className="SpecialThanks">
+    return props.isVisible ?
+        <div className="SpecialThanks">
             <h1>♡しおとはじめてのはなびたいかい♡</h1>
             <p>
                 V汐りんと一緒に花火大会に行った気分を味わうなの♡
@@ -34,10 +32,8 @@ export default function Help() {
                 <li><a href="https://github.com/chocolamint/first-summer-with-sio" target="_blank" rel="noreferrer">GitHub Repository</a></li>
             </ul>
             <div className="CloseButton">
-                <button className="HideSpecialThanksButton" onClick={() => setVisible(false)}>とじる</button>
+                <button className="HideSpecialThanksButton" onClick={props.onCloseButtonClick}>とじる</button>
             </div>
-        </div>) :
-        (<button className="ShowSpecialThanksButton" onClick={() => setVisible(true)}>
-            <i className="far fa-question-circle"></i>
-        </button>);
+        </div> :
+        <></>;
 }
