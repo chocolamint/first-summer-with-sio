@@ -1,16 +1,16 @@
 import familyMessages from "FamilyMessages";
 import { randomNumber, randomInt } from "Random";
 import { useEffect, useState } from "react";
-import sioMessages from "SIoMessages";
+import sioMessages from "SioMessages";
 import sioResponses from "SioResponse";
 
-type SioMessages = typeof sioMessages[number] | '';
+type SioMessage = typeof sioMessages[number] | '';
 type FamilyMessage = typeof familyMessages[number];
-type SioResponses = typeof sioResponses[FamilyMessage][number];
+type SioResponse = typeof sioResponses[FamilyMessage][number];
 
 export default function useSioMessage(option: { supress: boolean, request: FamilyMessage | null }) {
 
-    const [message, setMessage] = useState({ message: '' as SioMessages | SioResponses, isTarking: false });
+    const [message, setMessage] = useState({ message: '' as SioMessage | SioResponse, isTarking: false });
 
     useEffect(() => {
 
