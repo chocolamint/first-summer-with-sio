@@ -1,13 +1,16 @@
 .TalkButton {
     width: 4rem;
     height: 4rem;
+    padding: 0;
     background: transparent;
     appearance: none;
     border: none;
-    color: rgba(255, 255, 255, 0.8);
-    font-size: 3rem;
-    transform: scale(-1, 1);
     cursor: pointer;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 3rem;
+    color: rgba(255, 255, 255, 0.7);
+    transform: scale(-1, 1);
 }
 
 .TalkButton.disabled {
