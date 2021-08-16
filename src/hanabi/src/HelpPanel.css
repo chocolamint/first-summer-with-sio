@@ -1,12 +1,13 @@
 .SpecialThanks {
     position: absolute;
-    left: 2vmin;
-    top: 2vmin;
-    right: 2vmin;
-    background: rgba(40, 40, 40, 0.7);
-    border: 4px white double;
+    left: 2vmax;
+    top: 2vmax;
+    right: 2vmax;
+    bottom: 2vmax;
+    background: rgba(40, 40, 40, 0.9);
+    border: 3px white double;
     z-index: 1;
-    padding: 2vmin;
+    padding: 2vmax;
     border-radius: 1vmin;
     font-size: 1vmin;
     max-height: calc(100% - 8vmin);
@@ -24,9 +25,9 @@
 }
 
 .SpecialThanks p {
-    font-size: 370%;
+    font-size: 1.3rem;
     margin: 0;
-    padding: 0.7em 0 1vmin;
+    padding: 0.7rem 0 1vmin;
     color: rgba(255, 255, 255, 0.8);
 }
 
@@ -34,8 +35,8 @@
     margin: 3vmin 0 0;
     padding: 3vmin 0 1vmin;
     color: rgba(255, 255, 255, 0.8);
-    font-size: 450%;
-    line-height: 4vmin;
+    font-size: 1.4rem;
+    line-height: 1.5rem;
     font-weight: normal;
     border-top: dashed 0.4vmin rgba(255, 255, 255, 0.8);
 }
@@ -45,11 +46,11 @@
     margin: 0;
     padding: 0;
     list-style: none;
-    line-height: 2em;
+    line-height: 1.5rem;
 }
 
 .SpecialThanks li {
-    font-size: 400%;
+    font-size: 1.2rem;
     color: rgba(255, 255, 255, 0.8);
 }
 
@@ -67,7 +68,7 @@
 
 .SpecialThanks .CloseButton {
     text-align: right;
-    padding: 2vmin 0 0;
+    padding: 2rem 0 0;
 }
 
 .SpecialThanks .CloseButton button {
@@ -75,8 +76,8 @@
     appearance: none;
     cursor: pointer;
     border: 2px rgba(255, 255, 255, 0.8) solid;
-    padding: 0.4em 1em;
-    font-size: 450%;
+    padding: 0.4rem 1rem;
+    font-size: 1.3rem;
     border-radius: 1vmin;
     color: rgba(255, 255, 255, 0.8);
     font-weight: bold;
