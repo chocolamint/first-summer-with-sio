@@ -12,7 +12,10 @@
     position: relative;
     min-height: 3rem;
     display: flex;
-    align-items: stretch;
+    justify-content: center;
+    align-content: center;
+    flex-direction: row;
+    align-items: center;
 }
 
 .SioBalloon.show {
