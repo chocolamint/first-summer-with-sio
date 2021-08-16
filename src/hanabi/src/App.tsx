@@ -60,13 +60,19 @@ function App() {
   }, [familyMessage, siorinMessage, isBalloonVisible, isTalkPanelVisible, lastMessageTimestamp]);
 
   return (
-    <div className="App">
-      <HelpButton onClick={() => setIsHelpPanelVisible(true)} />
+    <>
+      <div className="App">
+        <header>
+          <HelpButton onClick={() => setIsHelpPanelVisible(true)} />
+        </header>
+        <footer>
+          <TalkButton onClick={() => setIsTalkPanelVisible(true)} isEnabled={!isBalloonVisible && !isTalkPanelVisible} />
+          <SioBalloon message={siorinMessage} isVisible={isBalloonVisible} />
+        </footer>
+      </div>
       <HelpPanel isVisible={isHelpPanelVisible} onCloseButtonClick={() => setIsHelpPanelVisible(false)} />
-      <TalkButton onClick={() => setIsTalkPanelVisible(true)} isEnabled={!isBalloonVisible && !isTalkPanelVisible} />
       <TalkPanel isVisible={isTalkPanelVisible} onTalk={msg => { setFamilyMessage(msg); setIsTalkPanelVisible(false); }} onCanceled={() => setIsTalkPanelVisible(false)} />
-      <SioBalloon message={siorinMessage} isVisible={isBalloonVisible} />
-    </div>
+    </>
   );
 }
 
