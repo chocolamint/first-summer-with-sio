@@ -62,7 +62,7 @@ function App() {
       <header>
         <Help />
       </header>
-      <TalkButton onClick={() => setIsTalkPanelVisible(true)} />
+      <TalkButton onClick={() => setIsTalkPanelVisible(true)} isEnabled={!isBalloonVisible && !isTalkPanelVisible} />
       <TalkPanel isVisible={isTalkPanelVisible} onTalk={msg => { setFamilyMessage(msg); setIsTalkPanelVisible(false); }} onCanceled={() => setIsTalkPanelVisible(false)} />
       <SioBalloon message={siorinMessage} isVisible={isBalloonVisible} />
     </div>
