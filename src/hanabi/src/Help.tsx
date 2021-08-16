@@ -12,6 +12,8 @@ export default function Help() {
         ['https://illustrator-works.com/illust/fireworks/', 'イラストレーターで花火を描こう！'],
         ['https://ao-system.net/favicon/', 'ファビコン favicon.icoを作ろう!'],
         ['https://fontawesome.com/', 'Font Awesome'],
+        ['https://www.tutorialmaniacs.net/archives/819', '【Illustrator】だれでも簡単に打ち上げ花火を描くチュートリアル'],
+        ['https://nonty.net/font/freefont/handyheart-neo/', 'はんでぃはーとねお']
     ] as [string, string][];
 
     return visible ?
