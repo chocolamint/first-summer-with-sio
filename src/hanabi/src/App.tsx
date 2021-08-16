@@ -9,8 +9,8 @@ import { useState } from 'react';
 
 function App() {
 
-  const sioMessage = useSioMessage();
   const [isTalkPanelVisible, setIsTalkPanelVisible] = useState(false);
+  const sioMessage = useSioMessage(isTalkPanelVisible);
 
   return (
     <div className="App">
@@ -18,7 +18,7 @@ function App() {
         <Help />
       </header>
       <TalkButton onClick={() => setIsTalkPanelVisible(true)} />
-      <TalkPanel isVisible={isTalkPanelVisible} onCanceled={() => setIsTalkPanelVisible(false)} />
+      <TalkPanel isVisible={isTalkPanelVisible} onTalk={msg => { setIsTalkPanelVisible(false); }} onCanceled={() => setIsTalkPanelVisible(false)} />
       <SioBalloon dialogue={sioMessage.message} isVisible={sioMessage.isTalking} />
     </div>
   );
