@@ -66,8 +66,8 @@ function App() {
           <HelpButton onClick={() => setIsHelpPanelVisible(true)} />
         </header>
         <footer>
-          <TalkButton onClick={() => setIsTalkPanelVisible(true)} isEnabled={!isBalloonVisible && !isTalkPanelVisible} />
           <SioBalloon message={siorinMessage} isVisible={isBalloonVisible} />
+          <TalkButton onClick={() => setIsTalkPanelVisible(true)} isEnabled={!isBalloonVisible && !isTalkPanelVisible} />
         </footer>
       </div>
       <HelpPanel isVisible={isHelpPanelVisible} onCloseButtonClick={() => setIsHelpPanelVisible(false)} />

@@ -40,7 +40,7 @@ https://opensource.org/licenses/mit-license.php
 - [日本語フリーフォントの「ふい字」をWEBフォントで活用しよう！](http://customtemplate.blog112.fc2.com/blog-entry-143.html)
 - [イラストレーターで花火を描こう！](https://illustrator-works.com/illust/fireworks/)
 - [【Illustrator】だれでも簡単に打ち上げ花火を描くチュートリアル](https://www.tutorialmaniacs.net/archives/819)
-- [はんでぃはーとねお](hhttps://nonty.net/font/freefont/handyheart-neo/)
+- [はんでぃはーとねお](https://nonty.net/font/freefont/handyheart-neo/)
 
 ## 恋汐りんごゔぁ〜ちゃるモード屋さんについて
 

@@ -17,9 +17,9 @@ export default function HelpPanel(props: { isVisible: boolean, onCloseButtonClic
 
     return props.isVisible ?
         <div className="SpecialThanks">
-            <h1>♡しおとはじめてのはなびたいかい♡</h1>
+            <h1><span className="emoticon">♡</span>しおとはじめてのはなびたいかい<span className="emoticon">♡</span></h1>
             <p>
-                V汐りんと一緒に花火大会に行った気分を味わうなの♡
+                V汐りんと一緒に花火大会に行った気分を味わうなの<span className="emoticon">♡</span>
             </p>
             <h2>Special Thanks <span className="emoticon">(Ｕ´ ' ᴗ &lt;`Ｕ)ミ☆</span></h2>
             <ul>
