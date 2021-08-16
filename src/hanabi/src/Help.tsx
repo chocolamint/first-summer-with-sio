@@ -13,7 +13,8 @@ export default function Help() {
         ['https://ao-system.net/favicon/', 'ファビコン favicon.icoを作ろう!'],
         ['https://fontawesome.com/', 'Font Awesome'],
         ['https://www.tutorialmaniacs.net/archives/819', '【Illustrator】だれでも簡単に打ち上げ花火を描くチュートリアル'],
-        ['https://nonty.net/font/freefont/handyheart-neo/', 'はんでぃはーとねお']
+        ['https://nonty.net/font/freefont/handyheart-neo/', 'はんでぃはーとねお'],
+        ['http://ogimage.tsmallfield.com/', 'OGP画像シミュレータ']
     ] as [string, string][];
 
     return visible ?
