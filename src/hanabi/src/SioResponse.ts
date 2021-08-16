@@ -11,7 +11,8 @@ const sioResponses = {
     ] as const,
     '浴衣似合ってるよ': [
         'わーい、嬉しまる～<span class="emoticon">₍₍ ◝(Ｕ^ᴗ^Ｕ)◞ ₎₎</span>',
-        '浴衣姿のしおと夜空の花火、どっちがかわいまる？<span class="emoticon">(Ｕ ˘ᴗ˘ Ｕ)</span>'
+        '浴衣姿のしおと夜空の花火、どっちがかわいまる？<span class="emoticon">(Ｕ ˘ᴗ˘ Ｕ)</span>',
+        '今日はね、きみのために特別な浴衣を着てきたなの～<span class="emoticon">(Ｕ ∩\'ᴗ\'///Ｕ)</span>♡',
     ] as const,
     '花火綺麗だね': [
         '本当に綺麗なのな～<span class="emoticon">(Ｕ∩ \'ᴗ\' ∩Ｕ)</span>',
@@ -25,13 +26,18 @@ const sioResponses = {
     ] as const,
     '一緒にいられて幸せ': [
         'しおもそう思ってまるよ<span class="emoticon">(Ｕ ∩\'ᴗ\'///Ｕ)</span>♡',
-        '今日は一緒に来られてよかったなのな<span class="emoticon">₍₍ ◝(Ｕ^ᴗ^Ｕ)◞ ₎₎</span>'
+        '今日は一緒に来られてよかったなのな<span class="emoticon">₍₍ ◝(Ｕ^ᴗ^Ｕ)◞ ₎₎</span>',
+        '最高の気分なのから、この時間が終わってほしくないなのな～<span class="emoticon">(Ｕ＞△＜Ｕ)</span>',
     ] as const,
     '来年もまた来ようね': [
-        'もちろん！約束なの<span class="emoticon">(Ｕ \'ᴗ\'  )⊃━━*.☆ﾟ</span>'
+        'もちろん！約束なの<span class="emoticon">(Ｕ \'ᴗ\'  )⊃━━*.☆ﾟ</span>',
+        '来年も来られるとよいなのな～<span class="emoticon">(Ｕ ˘ᴗ˘ Ｕ)</span>',
+        '楽しみにしてまる♡♡♡<span class="emoticon">(Ｕ⌒▽⌒Ｕ)</span>',
     ] as const,
     '楽しいね': [
-        'きみと一緒だから、なおさら楽しいなのな<span class="emoticon">(Ｕ ∩\'ᴗ\'///Ｕ)</span>'
+        'きみと一緒だから、なおさら楽しいなのな<span class="emoticon">(Ｕ ∩\'ᴗ\'///Ｕ)</span>',
+        '楽しまる～はわはわ<span class="emoticon">₍₍ ◝(Ｕ^ᴗ^Ｕ)◞ ₎₎</span>',
+        '楽しくて時間が経つのを忘れまるな<span class="emoticon">(Ｕ∩ \'ᴗ\' ∩Ｕ)</span>♡',
     ] as const,
 };
 
