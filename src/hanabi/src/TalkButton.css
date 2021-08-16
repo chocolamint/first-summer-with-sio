@@ -1,13 +1,11 @@
 .TalkButton {
-    width: 7vh;
-    height: 7vh;
+    width: 4rem;
+    height: 4rem;
     background: transparent;
     appearance: none;
     border: none;
     color: rgba(255, 255, 255, 0.8);
-    font-size: 6vh;
-    line-height: 6vh;
-    vertical-align: middle;
+    font-size: 3rem;
     transform: scale(-1, 1);
     cursor: pointer;
 }

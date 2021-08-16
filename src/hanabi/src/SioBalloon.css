@@ -1,14 +1,18 @@
 .SioBalloon {
     background: rgba(255, 159, 159, 0.3);
     color: white;
-    padding: 0.5em;
-    border-radius: 0.5em;
-    font-size: 3vh;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    font-size: 1.4rem;
     border: rgba(255, 255, 255, 0.3) double;
     transition-property: opacity;
     transition-delay: 0ms;
     transition-duration: 500ms;
     text-align: center;
+    position: relative;
+    min-height: 3rem;
+    display: flex;
+    align-items: stretch;
 }
 
 .SioBalloon.show {
@@ -24,11 +28,11 @@
     content: '';
     position: absolute;
     left: 1vw;
-    bottom: calc(-3vh - 2px);
+    bottom: calc(-1rem - 2px);
     width: 0;
     height: 0;
     border-style: solid;
-    border-width: 3vh 3vh 0 0;
+    border-width: 1rem 1rem 0 0;
     border-color: rgba(255, 159, 159, 0.3) transparent transparent transparent;
     transform: skewX(-30deg);
 }

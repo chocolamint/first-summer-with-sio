@@ -1,9 +1,6 @@
 .ShowSpecialThanksButton {
-    position: absolute;
-    top: 3vmin;
-    right: 4vmin;
-    height: 40px;
-    width: 40px;
+    height: 4rem;
+    width: 4rem;
     padding: 0;
     background: transparent;
     appearance: none;
@@ -11,6 +8,6 @@
     cursor: pointer;
     text-align: center;
     vertical-align: middle;
-    font-size: 40px;
+    font-size: 3rem;
     color: rgba(255, 255, 255, 0.8);
 }
