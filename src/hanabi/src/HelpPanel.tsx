@@ -11,6 +11,7 @@ export default function HelpPanel(props: { isVisible: boolean, onCloseButtonClic
         ['https://ao-system.net/favicon/', 'ファビコン favicon.icoを作ろう!'],
         ['https://fontawesome.com/', 'Font Awesome'],
         ['https://www.tutorialmaniacs.net/archives/819', '【Illustrator】だれでも簡単に打ち上げ花火を描くチュートリアル'],
+        ['https://remaster4.com/illustrator_practice_starry_sky/', '【Illustratorチュートリアル】星空が印象的なチラシを作る【実践編】'],
         ['https://nonty.net/font/freefont/handyheart-neo/', 'はんでぃはーとねお'],
         ['http://ogimage.tsmallfield.com/', 'OGP画像シミュレータ']
     ] as [string, string][];
