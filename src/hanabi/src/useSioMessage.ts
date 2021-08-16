@@ -1,10 +1,12 @@
+import familyMessages from "FamilyMessages";
 import { randomNumber, randomInt } from "Random";
 import { useEffect, useState } from "react";
 import sioMessages from "SIoMessages";
 
 type SioMessages = typeof sioMessages[number] | '';
+type FamilyMessage = typeof familyMessages[number];
 
-export default function useSioMessage(supress: boolean) {
+export default function useSioMessage(option: { supress: boolean, request: FamilyMessage | null }) {
 
     const [message, setMessage] = useState({ message: '' as SioMessages, index: -1, isTarking: false });
 
@@ -19,7 +21,7 @@ export default function useSioMessage(supress: boolean) {
                 do {
                     nextIndex = randomInt(sioMessages.length);
                 } while (nextIndex === prev.index);
-                return { message: sioMessages[nextIndex], index: nextIndex, isTarking: true && !supress };
+                return { message: sioMessages[nextIndex], index: nextIndex, isTarking: true && !option.supress };
             });
             const end = setTimeout(() => {
                 setMessage(prev => ({ message: prev.message, index: prev.index, isTarking: false }));
@@ -29,5 +31,5 @@ export default function useSioMessage(supress: boolean) {
         return () => clearTimeout(start);
     }, [message]);
 
-    return { message: message.message, isTalking: message.isTarking && !supress };
+    return { message: message.message, isTalking: message.isTarking && !option.supress };
 }
