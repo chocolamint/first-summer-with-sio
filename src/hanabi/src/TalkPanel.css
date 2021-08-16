@@ -1,0 +1,49 @@
+.TalkPanel {
+    position: absolute;
+    left: 2vw;
+    top: 2vh;
+    right: 2vw;
+    padding: 2vh;
+    max-height: calc(100% - 8vh);
+    overflow: auto;
+    font-size: 3.5vh;
+    transition-property: opacity;
+    transition-delay: 0ms;
+    transition-duration: 500ms;
+}
+
+.TalkPanel.show {
+    opacity: 1;
+    display: block;
+}
+
+.TalkPanel.hide {
+    opacity: 0;
+    display: none;
+}
+
+.TalkPanel ul,
+.TalkPanel li {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.TalkPanel li {
+    margin: 1.5vh 0;
+    padding: 1.5vh 2vw;
+    background: rgba(40, 40, 40, 0.9);
+    border: 4px white double;
+    border-radius: 10px;
+    color: rgba(255, 255, 255, 0.9);
+    z-index: 1;
+    cursor: pointer;
+}
+
+.TalkPanel li:first-child {
+    margin-top: 0;
+}
+
+.TalkPanel li:last-child {
+    margin-bottom: 0;
+}
