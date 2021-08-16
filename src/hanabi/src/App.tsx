@@ -1,7 +1,6 @@
 import 'App.css';
 import 'SioBalloon';
 import SioBalloon from 'SioBalloon';
-import Help from 'Help';
 import TalkButton from 'TalkButton';
 import TalkPanel from 'TalkPanel';
 import { useState, useEffect } from 'react';
@@ -9,6 +8,8 @@ import familyMessages from 'FamilyMessages';
 import sioMessages from 'SioMessages';
 import sioResponses from 'SioResponse';
 import { randomInt, randomNumber } from 'Random';
+import HelpButton from 'HelpButton';
+import HelpPanel from 'HelpPanel';
 
 type FamilyMessage = typeof familyMessages[number];
 type SioMessage = typeof sioMessages[number] | '';
@@ -21,6 +22,7 @@ function App() {
   const [siorinMessage, setSiorinMessage] = useState('' as SioMessage | SioResponse);
   const [isBalloonVisible, setIsBalloonVisible] = useState(false);
   const [lastMessageTimestamp, setLastMessageTimestamp] = useState(0);
+  const [isHelpPanelVisible, setIsHelpPanelVisible] = useState(false);
 
   useEffect(() => {
 
@@ -58,14 +60,19 @@ function App() {
   }, [familyMessage, siorinMessage, isBalloonVisible, isTalkPanelVisible, lastMessageTimestamp]);
 
   return (
-    <div className="App">
-      <header>
-        <Help />
-      </header>
-      <TalkButton onClick={() => setIsTalkPanelVisible(true)} isEnabled={!isBalloonVisible && !isTalkPanelVisible} />
+    <>
+      <div className="App">
+        <header>
+          <HelpButton onClick={() => setIsHelpPanelVisible(true)} />
+        </header>
+        <footer>
+          <TalkButton onClick={() => setIsTalkPanelVisible(true)} isEnabled={!isBalloonVisible && !isTalkPanelVisible} />
+          <SioBalloon message={siorinMessage} isVisible={isBalloonVisible} />
+        </footer>
+      </div>
+      <HelpPanel isVisible={isHelpPanelVisible} onCloseButtonClick={() => setIsHelpPanelVisible(false)} />
       <TalkPanel isVisible={isTalkPanelVisible} onTalk={msg => { setFamilyMessage(msg); setIsTalkPanelVisible(false); }} onCanceled={() => setIsTalkPanelVisible(false)} />
-      <SioBalloon message={siorinMessage} isVisible={isBalloonVisible} />
-    </div>
+    </>
   );
 }
 
