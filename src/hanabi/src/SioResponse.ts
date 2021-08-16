@@ -5,7 +5,7 @@ type SioResponses = { [K in typeof FamilyMessages[number]]: readonly string[] };
 
 const sioResponses: SioResponses = {
     'こんばんはわ～': [
-        'こんばんはわの～ <span class="emoticon">(Ｕ⌒▽⌒Ｕ三Ｕ⌒▽⌒Ｕ)(Ｕ⌒▽⌒Ｕ)</span>',
+        'こんばんはわの～ <span class="emoticon">(Ｕ⌒▽⌒Ｕ三Ｕ⌒▽⌒Ｕ)</span>',
         'はわの <span class="emoticon">(Ｕ \'ᴗ\' Ｕ)</span>',
         'こんばんはわ～ <span class="emoticon">(Ｕ∩ \'ᴗ\' ∩Ｕ)</span>',
     ] as const,
