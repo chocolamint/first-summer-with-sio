@@ -5,10 +5,13 @@ import Shugarin from 'Shugarin';
 import { setInterval, clearInterval } from 'timers';
 import Watermelon from 'Watermelon';
 
+type ShugarinDirection = 'Straight' | 'MoreLeft' | 'MoreRight';
+
 function App() {
 
   const [shugarinX, setShugarinX] = useState(document.body.clientWidth / 2);
   const [shugarinY, setShugarinY] = useState(5);
+  const [shugarinDirection, setShugarinDirection] = useState('Straight' as ShugarinDirection);
 
   useEffect(() => {
     const shugarinAnimation = setInterval(() => {
@@ -16,6 +19,16 @@ function App() {
         clearInterval(shugarinAnimation);
       } else {
         setShugarinY(prev => prev + 0.4);
+        switch (shugarinDirection) {
+          case 'Straight':
+            break;
+          case 'MoreLeft':
+            setShugarinX(prev => prev + 2);
+            break;
+          case 'MoreRight':
+            setShugarinX(prev => prev - 2);
+            break;
+        }
       }
 
     }, 100);
@@ -26,7 +39,10 @@ function App() {
     <div className="App">
       <Shugarin x={shugarinX} y={shugarinY + 'vh'} />
       <Watermelon />
-      <AdvicePanel />
+      <AdvicePanel
+        onMoreLeftClick={() => setShugarinDirection('MoreLeft')}
+        onMoreRightClick={() => setShugarinDirection('MoreRight')}
+      />
     </div>
   );
 }
