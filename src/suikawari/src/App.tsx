@@ -10,7 +10,8 @@ type ShugarinDirection = 'Straight' | 'MoreLeft' | 'MoreRight';
 
 function App() {
 
-  const [shugarinX, setShugarinX] = useState(50);
+  const [watermelonX,] = useState(randomNumber(10, 90));
+  const [shugarinX, setShugarinX] = useState(randomNumber(10, 90));
   const [shugarinY, setShugarinY] = useState(5);
   const [shugarinDirection, setShugarinDirection] = useState('Straight' as ShugarinDirection);
   const moveDistances = [0.1, 0.2, 0.3, 0.5, 1.0, 2.0, 4.0] as const;
@@ -42,7 +43,7 @@ function App() {
     <div className="App">
       <main>
         <Shugarin x={shugarinX} y={shugarinY} />
-        <Watermelon x={50} y={57} />
+        <Watermelon x={watermelonX} y={57} />
       </main>
       <footer>
         <AdvicePanel
