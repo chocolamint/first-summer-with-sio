@@ -1,5 +1,6 @@
 import AdvicePanel from 'AdvicePanel';
 import 'App.css';
+import { randomNumber } from 'Random';
 import { useState, useEffect } from 'react';
 import Shugarin from 'Shugarin';
 import { setInterval, clearInterval } from 'timers';
@@ -23,10 +24,10 @@ function App() {
           case 'Straight':
             break;
           case 'MoreLeft':
-            setShugarinX(prev => prev + 2);
+            setShugarinX(prev => prev + randomNumber(2.0, 10.0));
             break;
           case 'MoreRight':
-            setShugarinX(prev => prev - 2);
+            setShugarinX(prev => prev - randomNumber(2.0, 10.0));
             break;
         }
       }
