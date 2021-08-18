@@ -11,7 +11,7 @@ function App() {
 
   useEffect(() => {
     const shugarinAnimation = setInterval(() => {
-      if (shugarinY > 70) {
+      if (shugarinY > 50) {
         clearInterval(shugarinAnimation);
       } else {
         setShugarinY(prev => prev + 0.4);
