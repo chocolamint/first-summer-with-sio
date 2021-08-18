@@ -1,23 +1,28 @@
 import 'App.css';
+import { useState, useEffect } from 'react';
 import Shugarin from 'Shugarin';
+import { setInterval, clearInterval } from 'timers';
 
 function App() {
+
+  const [shugarinX, setShugarinX] = useState(document.body.clientWidth / 2);
+  const [shugarinY, setShugarinY] = useState(5);
+
+  useEffect(() => {
+    const shugarinAnimation = setInterval(() => {
+      if (shugarinY > 70) {
+        clearInterval(shugarinAnimation);
+      } else {
+        setShugarinY(prev => prev + 0.4);
+      }
+
+    }, 100);
+    return () => clearInterval(shugarinAnimation);
+  }, [shugarinY]);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <Shugarin />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Shugarin x={shugarinX} y={shugarinY + 'vh'} />
     </div>
   );
 }
