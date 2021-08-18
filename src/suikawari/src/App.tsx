@@ -2,6 +2,7 @@ import 'App.css';
 import { useState, useEffect } from 'react';
 import Shugarin from 'Shugarin';
 import { setInterval, clearInterval } from 'timers';
+import Watermelon from 'Watermelon';
 
 function App() {
 
@@ -23,6 +24,7 @@ function App() {
   return (
     <div className="App">
       <Shugarin x={shugarinX} y={shugarinY + 'vh'} />
+      <Watermelon />
     </div>
   );
 }
