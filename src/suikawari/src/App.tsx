@@ -1,3 +1,4 @@
+import AdvicePanel from 'AdvicePanel';
 import 'App.css';
 import { useState, useEffect } from 'react';
 import Shugarin from 'Shugarin';
@@ -25,6 +26,7 @@ function App() {
     <div className="App">
       <Shugarin x={shugarinX} y={shugarinY + 'vh'} />
       <Watermelon />
+      <AdvicePanel />
     </div>
   );
 }
