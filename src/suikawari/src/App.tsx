@@ -42,7 +42,7 @@ function App() {
     <div className="App">
       <main>
         <Shugarin x={shugarinX} y={shugarinY} />
-        <Watermelon />
+        <Watermelon x={50} y={57} />
       </main>
       <footer>
         <AdvicePanel
