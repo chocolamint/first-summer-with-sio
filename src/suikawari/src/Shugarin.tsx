@@ -7,6 +7,6 @@ export default function Shugarin(props: { x: number, y: number }) {
         top: props.y + 'vh'
     };
     return <div className="Shugarin" style={shugarinStyle}>
-        <img src={shugarin} />
+        <img src={shugarin} alt="しゅがりん" />
     </div>;
 }

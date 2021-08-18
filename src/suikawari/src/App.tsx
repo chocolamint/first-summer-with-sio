@@ -14,9 +14,9 @@ function App() {
   const [shugarinX, setShugarinX] = useState(randomNumber(10, 90));
   const [shugarinY, setShugarinY] = useState(5);
   const [shugarinDirection, setShugarinDirection] = useState('Straight' as ShugarinDirection);
-  const moveDistances = [0.1, 0.2, 0.3, 0.5, 1.0, 2.0, 4.0] as const;
 
   useEffect(() => {
+    const moveDistances = [0.1, 0.2, 0.3, 0.5, 1.0, 2.0, 4.0] as const;
     const shugarinAnimation = setInterval(() => {
       if (shugarinY > 50) {
         clearInterval(shugarinAnimation);
@@ -37,7 +37,7 @@ function App() {
 
     }, 100);
     return () => clearInterval(shugarinAnimation);
-  }, [shugarinY]);
+  }, [shugarinY, shugarinDirection]);
 
   return (
     <div className="App">
