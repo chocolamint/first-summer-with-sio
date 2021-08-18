@@ -10,7 +10,7 @@ type ShugarinDirection = 'Straight' | 'MoreLeft' | 'MoreRight';
 
 function App() {
 
-  const [shugarinX, setShugarinX] = useState(document.body.clientWidth / 2);
+  const [shugarinX, setShugarinX] = useState(50);
   const [shugarinY, setShugarinY] = useState(5);
   const [shugarinDirection, setShugarinDirection] = useState('Straight' as ShugarinDirection);
 
@@ -24,10 +24,10 @@ function App() {
           case 'Straight':
             break;
           case 'MoreLeft':
-            setShugarinX(prev => prev + randomNumber(2.0, 10.0));
+            setShugarinX(prev => prev + randomNumber(0.5, 4.0));
             break;
           case 'MoreRight':
-            setShugarinX(prev => prev - randomNumber(2.0, 10.0));
+            setShugarinX(prev => prev - randomNumber(0.5, 4.0));
             break;
         }
       }
@@ -39,7 +39,7 @@ function App() {
   return (
     <div className="App">
       <main>
-        <Shugarin x={shugarinX} y={shugarinY + 'vh'} />
+        <Shugarin x={shugarinX + 'vw'} y={shugarinY + 'vh'} />
         <Watermelon />
       </main>
       <footer>
