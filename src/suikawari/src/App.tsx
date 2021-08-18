@@ -41,7 +41,7 @@ function App() {
   return (
     <div className="App">
       <main>
-        <Shugarin x={shugarinX + 'vw'} y={shugarinY + 'vh'} />
+        <Shugarin x={shugarinX} y={shugarinY} />
         <Watermelon />
       </main>
       <footer>

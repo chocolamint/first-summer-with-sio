@@ -1,10 +1,10 @@
 import shugarin from 'shugarin.png';
 import 'Shugarin.css';
 
-export default function Shugarin(props: { x: string, y: string }) {
+export default function Shugarin(props: { x: number, y: number }) {
     const shugarinStyle = {
-        left: props.x,
-        top: props.y
+        left: props.x + 'vw',
+        top: props.y + 'vh'
     };
     return <div className="Shugarin" style={shugarinStyle}>
         <img src={shugarin} />
