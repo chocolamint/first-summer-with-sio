@@ -1,6 +1,6 @@
 import AdvicePanel from 'AdvicePanel';
 import 'App.css';
-import { randomNumber } from 'Random';
+import { randomInt, randomNumber } from 'Random';
 import { useState, useEffect } from 'react';
 import Shugarin from 'Shugarin';
 import { setInterval, clearInterval } from 'timers';
@@ -13,6 +13,7 @@ function App() {
   const [shugarinX, setShugarinX] = useState(50);
   const [shugarinY, setShugarinY] = useState(5);
   const [shugarinDirection, setShugarinDirection] = useState('Straight' as ShugarinDirection);
+  const moveDistances = [0.1, 0.2, 0.3, 0.5, 1.0, 2.0, 4.0] as const;
 
   useEffect(() => {
     const shugarinAnimation = setInterval(() => {
@@ -20,14 +21,15 @@ function App() {
         clearInterval(shugarinAnimation);
       } else {
         setShugarinY(prev => prev + 0.4);
+        const moveDistance = moveDistances[randomInt(moveDistances.length)];
         switch (shugarinDirection) {
           case 'Straight':
             break;
           case 'MoreLeft':
-            setShugarinX(prev => prev + randomNumber(0.5, 4.0));
+            setShugarinX(prev => prev + moveDistance);
             break;
           case 'MoreRight':
-            setShugarinX(prev => prev - randomNumber(0.5, 4.0));
+            setShugarinX(prev => prev - moveDistance);
             break;
         }
       }
