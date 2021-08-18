@@ -6,4 +6,6 @@
     position: relative;
     left: -50%;
     top: -50%;
+    height: 13vh;
+    width: auto;
 }
