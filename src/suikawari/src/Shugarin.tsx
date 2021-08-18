@@ -1,7 +1,7 @@
 import shugarin from 'shugarin.png';
 import 'Shugarin.css';
 
-export default function Shugarin(props: { x: number, y: string }) {
+export default function Shugarin(props: { x: string, y: string }) {
     const shugarinStyle = {
         left: props.x,
         top: props.y
