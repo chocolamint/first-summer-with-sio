@@ -38,12 +38,16 @@ function App() {
 
   return (
     <div className="App">
-      <Shugarin x={shugarinX} y={shugarinY + 'vh'} />
-      <Watermelon />
-      <AdvicePanel
-        onMoreLeftClick={() => setShugarinDirection('MoreLeft')}
-        onMoreRightClick={() => setShugarinDirection('MoreRight')}
-      />
+      <main>
+        <Shugarin x={shugarinX} y={shugarinY + 'vh'} />
+        <Watermelon />
+      </main>
+      <footer>
+        <AdvicePanel
+          onMoreLeftClick={() => setShugarinDirection('MoreLeft')}
+          onMoreRightClick={() => setShugarinDirection('MoreRight')}
+        />
+      </footer>
     </div>
   );
 }

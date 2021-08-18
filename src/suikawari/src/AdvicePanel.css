@@ -1,5 +1,5 @@
 .AdvicePanel {
-    padding: 5vh;
+    padding: 4vmin;
     width: 100%;
     box-sizing: border-box;
     display: flex;
@@ -11,12 +11,12 @@
     background: rgba(255, 255, 255, 0.7);
     border: rgba(64, 0, 0, 0.7) 6px double;
     appearance: none;
-    padding: 3vh;
-    font-size: 3vh;
+    padding: 3vmin;
+    font-size: 5vmin;
     border-radius: 2vh;
     cursor: pointer;
 }
 
 .AdvicePanel button:first-child {
-    margin-right: 4vh;
+    margin-right: 4vmin;
 }
