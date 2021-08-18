@@ -7,6 +7,6 @@ export default function Watermelon(props: { x: number, y: number }) {
         top: props.y + 'vh'
     };
     return <div className="Watermelon" style={watermelonStyle}>
-        <img src={watermelon} />
+        <img src={watermelon} alt="すいか" />
     </div>
 }
