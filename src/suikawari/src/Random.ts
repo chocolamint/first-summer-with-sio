@@ -15,3 +15,7 @@ export function randomInt(x: number, y?: number): number {
 export function randomNumber(min: number, max: number) {
     return Math.random() * (max - min) + min;
 }
+
+export function randomPick<T>(arr: T[]) {
+    return arr[randomInt(arr.length)];
+}
