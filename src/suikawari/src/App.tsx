@@ -6,6 +6,7 @@ import { useState, useEffect } from 'react';
 import Shugarin from 'Shugarin';
 import { setInterval, clearInterval } from 'timers';
 import Watermelon, { WatermelonState } from 'Watermelon';
+import startLogo from 'start-logo.png';
 
 type ShugarinDirection = 'Straight' | 'MoreLeft' | 'MoreRight';
 type GameState = { state: 'Start' } | { state: 'Game'} | { state: 'Result', success: boolean };
@@ -80,6 +81,7 @@ function App() {
           </header>
           <main>
             <HelpPanel isVisible={isHelpPanelVisible} onCloseButtonClick={() => setIsHelpPanelVisible(false)} />
+            <img className="StartLogo" src={startLogo} alt="しゅがりんとはじめてのすいかわり♡" />
           </main>
           <footer>
             <button className="StartButton" onClick={() => setGameState({ state: 'Game' })}>はじめる</button>
