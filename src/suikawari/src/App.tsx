@@ -23,6 +23,7 @@ function App() {
 
   const resetGame = () => {
     setGameState({ state: 'Game' });
+    setShugarinDirection('Straight');
     setWatermelonX(randomNumber(10, 90));
     setShugarinX(randomNumber(10, 90));
     setShugarinY(5);
