@@ -56,7 +56,7 @@ function App() {
       }
       // 移動中
       else {
-        setShugarinY(prev => prev + 0.4);
+        setShugarinY(prev => prev + randomPick([-0.1, 0, 0.1, 0.1, 0.2, 0.2, 0.2, 0.3, 0.3, 0.3, 0.3, 0.4, 0.4]));
         switch (shugarinDirection) {
           case 'Straight':
             setShugarinX(prev => prev + randomPick([-0.2, -0.1, 0, 0.1, 0.2]));
