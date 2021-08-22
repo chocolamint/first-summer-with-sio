@@ -1,3 +1,5 @@
+import 'ResultPanel.css';
+
 export default function ResultPanel(props: { success: boolean, onContinue: () => void }) {
     const className = ['ResultPanel', props.success ? 'success' : 'fail'].join(' ');
     return <div className={className}>

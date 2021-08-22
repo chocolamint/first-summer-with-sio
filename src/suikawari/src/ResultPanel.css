@@ -1,0 +1,31 @@
+.ResultPanel {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.7);
+}
+
+.ResultPanel .Result {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 10vh;
+    margin: auto;
+    width: 60vw;
+    font-size: 10vmin;
+    color: rgba(255, 255, 255, 1);
+    text-align: center;
+}
+
+.ResultPanel .ContinueButton {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 10vh;
+    margin: auto;
+    width: 60vw;
+    font-size: 10vmin;
+    cursor: pointer;
+}
