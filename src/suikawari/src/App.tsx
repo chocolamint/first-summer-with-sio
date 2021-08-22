@@ -1,12 +1,9 @@
-import AdvicePanel from 'AdvicePanel';
 import 'App.css';
 import HelpButton from 'HelpButton';
 import HelpPanel from 'HelpPanel';
 import { randomNumber, randomPick } from 'Random';
 import { useState, useEffect } from 'react';
-import ResultPanel from 'ResultPanel';
 import Shugarin from 'Shugarin';
-import StartScreen from 'StartScreen';
 import { setInterval, clearInterval } from 'timers';
 import Watermelon, { WatermelonState } from 'Watermelon';
 
@@ -82,9 +79,11 @@ function App() {
             <HelpButton onClick={() => setIsHelpPanelVisible(true)} />
           </header>
           <main>
-            <StartScreen onStart={() => setGameState({ state: 'Game' })} />
             <HelpPanel isVisible={isHelpPanelVisible} onCloseButtonClick={() => setIsHelpPanelVisible(false)} />
           </main>
+          <footer>
+            <button className="StartButton" onClick={() => setGameState({ state: 'Game' })}>はじめる</button>
+          </footer>
         </>;
       break;
     default:
@@ -95,14 +94,24 @@ function App() {
           <main>
             <Shugarin imageId={shugarinImageId} x={shugarinX} y={shugarinY} />
             <Watermelon imageId={watermelonImageId} x={watermelonX} y={57} state={watermelonState} />
-            { gameState.state === 'Result' ? <ResultPanel success={gameState.success} onContinue={resetGame} /> : <></>}
             <HelpPanel isVisible={isHelpPanelVisible} onCloseButtonClick={() => setIsHelpPanelVisible(false)} />
+            {
+              gameState.state === 'Result' ?
+                <div className="Result">
+                  {gameState.success ? 'せいこう♡' : 'しっぱい💦'}
+                </div> :
+                <></>
+            }
           </main>
           <footer>
-            <AdvicePanel
-              onMoreLeftClick={() => setShugarinDirection('MoreLeft')}
-              onMoreRightClick={() => setShugarinDirection('MoreRight')}
-            />
+            {
+              gameState.state === 'Game' ?
+                <>
+                  <button id="ToLeft" onClick={() => setShugarinDirection('MoreLeft')}>もっと左</button>
+                  <button id="ToRight" onClick={() => setShugarinDirection('MoreRight')}>もっと右</button>
+                </> :
+                <button onClick={() => resetGame()}>もう一度遊ぶ</button>
+            }
           </footer>
         </>;
       break;
