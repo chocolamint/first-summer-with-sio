@@ -26,9 +26,9 @@ main .StartLogo {
 
 main .Result {
   font-size: 15vmin;
-  padding-top: 10vmin;
   position: relative;
   z-index: 1;
+  top: -15vmin;
 }
 
 footer {
