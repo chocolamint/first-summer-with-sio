@@ -6,7 +6,7 @@ import ResultPanel from 'ResultPanel';
 import Shugarin from 'Shugarin';
 import StartScreen from 'StartScreen';
 import { setInterval, clearInterval } from 'timers';
-import Watermelon from 'Watermelon';
+import Watermelon, { WatermelonState } from 'Watermelon';
 
 type ShugarinDirection = 'Straight' | 'MoreLeft' | 'MoreRight';
 type GameState = { state: 'Start' } | { state: 'Game'} | { state: 'Result', success: boolean };
@@ -20,10 +20,12 @@ function App() {
   const [shugarinX, setShugarinX] = useState(randomNumber(10, 90));
   const [shugarinY, setShugarinY] = useState(5);
   const [shugarinDirection, setShugarinDirection] = useState('Straight' as ShugarinDirection);
+  const [watermelonState, setWatermelonState] = useState('Normal' as WatermelonState);
 
   const resetGame = () => {
     setGameState({ state: 'Game' });
     setShugarinDirection('Straight');
+    setWatermelonState('Normal');
     setWatermelonX(randomNumber(10, 90));
     setShugarinX(randomNumber(10, 90));
     setShugarinY(5);
@@ -50,6 +52,9 @@ function App() {
       if (shugarinY > 50) {
         const success = (watermelonLeft <= shugarinCenter && shugarinCenter <= watermelonRight);
         setGameState({ state: 'Result', success });
+        if (success) {
+          setWatermelonState('Crashed');
+        }
       }
       // 移動中
       else {
@@ -79,7 +84,7 @@ function App() {
             <>
               <main>
                 <Shugarin imageId={shugarinImageId} x={shugarinX} y={shugarinY} />
-                <Watermelon imageId={watermelonImageId} x={watermelonX} y={57} />
+                <Watermelon imageId={watermelonImageId} x={watermelonX} y={57} state={watermelonState} />
               </main>
               <footer>
                 <AdvicePanel
