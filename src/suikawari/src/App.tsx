@@ -1,6 +1,8 @@
 import AdvicePanel from 'AdvicePanel';
 import 'App.css';
-import { randomInt, randomNumber, randomPick } from 'Random';
+import HelpButton from 'HelpButton';
+import HelpPanel from 'HelpPanel';
+import { randomNumber, randomPick } from 'Random';
 import { useState, useEffect } from 'react';
 import ResultPanel from 'ResultPanel';
 import Shugarin from 'Shugarin';
@@ -16,6 +18,7 @@ function App() {
   const shugarinImageId = 'Shugarin';
   const watermelonImageId = 'Watermelon';
   const [gameState, setGameState] = useState({ state: 'Start' } as GameState);
+  const [isHelpPanelVisible, setIsHelpPanelVisible] = useState(false);
   const [watermelonX, setWatermelonX] = useState(randomNumber(10, 90));
   const [shugarinX, setShugarinX] = useState(randomNumber(10, 90));
   const [shugarinY, setShugarinY] = useState(5);
@@ -71,27 +74,43 @@ function App() {
     return () => clearInterval(shugarinAnimation);
   }, [shugarinY, shugarinDirection, gameState]);
 
+  let content: JSX.Element;
+  switch (gameState.state) {
+    case 'Start':
+      content = <>
+          <header>
+            <HelpButton onClick={() => setIsHelpPanelVisible(true)} />
+          </header>
+          <main>
+            <StartScreen onStart={() => setGameState({ state: 'Game' })} />
+            <HelpPanel isVisible={isHelpPanelVisible} onCloseButtonClick={() => setIsHelpPanelVisible(false)} />
+          </main>
+        </>;
+      break;
+    default:
+      content = <>
+          <header>
+            <HelpButton onClick={() => setIsHelpPanelVisible(true)} />
+          </header>
+          <main>
+            <Shugarin imageId={shugarinImageId} x={shugarinX} y={shugarinY} />
+            <Watermelon imageId={watermelonImageId} x={watermelonX} y={57} state={watermelonState} />
+            { gameState.state === 'Result' ? <ResultPanel success={gameState.success} onContinue={resetGame} /> : <></>}
+            <HelpPanel isVisible={isHelpPanelVisible} onCloseButtonClick={() => setIsHelpPanelVisible(false)} />
+          </main>
+          <footer>
+            <AdvicePanel
+              onMoreLeftClick={() => setShugarinDirection('MoreLeft')}
+              onMoreRightClick={() => setShugarinDirection('MoreRight')}
+            />
+          </footer>
+        </>;
+      break;
+  }
+
   return (
     <div className="App">
-      {
-        gameState.state === 'Start' ? 
-          <StartScreen onStart={() => setGameState({ state: 'Game' })} /> :
-          (
-            <>
-              <main>
-                <Shugarin imageId={shugarinImageId} x={shugarinX} y={shugarinY} />
-                <Watermelon imageId={watermelonImageId} x={watermelonX} y={57} state={watermelonState} />
-              </main>
-              <footer>
-                <AdvicePanel
-                  onMoreLeftClick={() => setShugarinDirection('MoreLeft')}
-                  onMoreRightClick={() => setShugarinDirection('MoreRight')}
-                />
-              </footer>
-              { gameState.state === 'Result' ? <ResultPanel success={gameState.success} onContinue={resetGame} /> : <></>}
-            </>
-          )
-      }
+      {content}
     </div>
   );
 }

@@ -1,0 +1,14 @@
+.HelpButton {
+    height: 4rem;
+    width: 4rem;
+    padding: 0;
+    background: transparent;
+    appearance: none;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 3rem;
+    color: rgba(95, 64, 1, 0.555);
+    z-index: 1;
+}
