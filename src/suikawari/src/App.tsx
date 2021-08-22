@@ -13,13 +13,22 @@ type GameState = { state: 'Start' } | { state: 'Game'} | { state: 'Result', succ
 
 const moveDirectionsSource = {
   straight: [
-    [-0.2, -0.1, 0, 0.1, 0.2],
+    [-0.4, -0.3, -0.2, -0.1, 0, 0.1, 0.2, 0.3, 0.4],
+    [-0.4, -0.3, -0.2, -0.1, 0, 0.2],
+    [-0.2, 0, 0.1, 0.2, 0.3, 0.4],
+    [-0.2, -0.1, 0, 0.1, 0.2, 0.2, 0.3, 0.3, 0.4, 0.5],
+    [-0.4, -0.3, -0.2, -0.1, 0, 0.2],
+    [-0.2, 0, 0.1, 0.2, 0.3, 0.4],
+    [-0.5, -0.4, -0.3, -0.3, -0.2, -0.1, 0, 0.1, 0.2],
   ],
   x: [
-    [-0.2, -0.1, 0, 0.1, 0.2, 0.3, 0.5, 1.0, 2.0, 4.0]
+    [-0.2, -0.1, 0, 0.1, 0.2, 0.3, 0.5, 1.0, 2.0, 4.0],
+    [-0.2, -0.1, 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 1.0],
+    [-0.3, -0.2, -0.1, 0, 0.2, 0.3, 0.4, 0.5, 1.0, 2.0],
   ],
   y: [
-    [-0.1, 0, 0.1, 0.1, 0.2, 0.2, 0.2, 0.3, 0.3, 0.3, 0.3, 0.4, 0.4]
+    [-0.1, 0, 0.1, 0.1, 0.2, 0.2, 0.2, 0.3, 0.3, 0.3, 0.3, 0.4, 0.4],
+    [-0.2, -0.1, -0.1, 0.1, 0.2, 0.2, 0.2, 0.3, 0.3, 0.3, 0.3, 0.4, 0.4, 0.5, 0.5],
   ]
 };
 
@@ -77,17 +86,21 @@ function App() {
       }
       // 移動中
       else {
+        console.log(`y: [${moveDirections.y.join(',')}]`);
         setShugarinY(prev => prev + randomPick(moveDirections.y));
         switch (shugarinDirection) {
           case 'Straight':
+            console.log(`straight: [${moveDirections.straight.join(',')}]`);
             setShugarinX(prev => prev + randomPick(moveDirections.straight));
             break;
           case 'MoreLeft':
           case 'MoreRight':
+            console.log(`x: [${moveDirections.x.join(',')}]`);
             const direction = (shugarinDirection === 'MoreLeft' ? 1 : -1);
             setShugarinX(prev => prev + direction * randomPick(moveDirections.x));
             break;
         }
+        setMoveDirections(prev => ({ ...getMoveDirections(), straight: prev.straight }));
       }
     }, 100);
     return () => clearInterval(shugarinAnimation);
