@@ -1,6 +1,6 @@
 import AdvicePanel from 'AdvicePanel';
 import 'App.css';
-import { randomInt, randomNumber } from 'Random';
+import { randomInt, randomNumber, randomPick } from 'Random';
 import { useState, useEffect } from 'react';
 import ResultPanel from 'ResultPanel';
 import Shugarin from 'Shugarin';
@@ -36,8 +36,6 @@ function App() {
     const shugarinAnimation = setInterval(() => {
       
       if (gameState.state !== 'Game') return;
-      
-      const moveDistances = [0.1, 0.2, 0.3, 0.5, 1.0, 2.0, 4.0] as const;
    
       const shugarinRect = document.getElementById('Shugarin')!.getBoundingClientRect();
       const shugarinLeft = shugarinRect.left;
@@ -58,16 +56,14 @@ function App() {
       }
       // 移動中
       else {
-        setShugarinY(prev => prev + 0.4);
-        const moveDistance = moveDistances[randomInt(moveDistances.length)];
+        setShugarinY(prev => prev + randomPick([-0.1, 0, 0.1, 0.1, 0.2, 0.2, 0.2, 0.3, 0.3, 0.3, 0.3, 0.4, 0.4]));
         switch (shugarinDirection) {
           case 'Straight':
+            setShugarinX(prev => prev + randomPick([-0.2, -0.1, 0, 0.1, 0.2]));
             break;
           case 'MoreLeft':
-            setShugarinX(prev => prev + moveDistance);
-            break;
           case 'MoreRight':
-            setShugarinX(prev => prev - moveDistance);
+            setShugarinX(prev => prev + (shugarinDirection === 'MoreLeft' ? 1 : -1) * randomPick([-0.2, -0.1, 0, 0.1, 0.2, 0.3, 0.5, 1.0, 2.0, 4.0]));
             break;
         }
       }
