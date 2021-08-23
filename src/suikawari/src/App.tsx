@@ -49,6 +49,8 @@ function App() {
   const [shugarinX, setShugarinX] = useState(randomNumber(10, 90));
   const [shugarinY, setShugarinY] = useState(5);
   const [shugarinDirection, setShugarinDirection] = useState('Straight' as ShugarinDirection);
+  const [isShugarinConfused, setIsShugarinConfused] = useState(false);
+  const [lastAdvicedAt, setLastAdvicedAt] = useState(0);
   const [watermelonState, setWatermelonState] = useState('Normal' as WatermelonState);
 
   const resetGame = () => {
@@ -59,6 +61,18 @@ function App() {
     setShugarinX(randomNumber(10, 90));
     setShugarinY(5);
     setMoveDirections(getMoveDirections());
+    setIsShugarinConfused(false);
+  };
+
+  const advice = (direction: 'MoreLeft' | 'MoreRight') => {
+    if (lastAdvicedAt + 2000 > Date.now()) {
+      setIsShugarinConfused(true);
+      setShugarinDirection(randomPick(['Straight', 'MoreLeft', 'MoreRight']));
+    } else {
+      setShugarinDirection(direction);
+      setLastAdvicedAt(Date.now());
+      setIsShugarinConfused(false);
+    }
   };
 
   useEffect(() => {
@@ -78,6 +92,7 @@ function App() {
   
       // すいか位置まで到着したとき
       if (shugarinY > 50) {
+        setIsShugarinConfused(false);
         const success = (watermelonLeft <= shugarinCenter && shugarinCenter <= watermelonRight);
         setGameState({ state: 'Result', success });
         if (success) {
@@ -123,7 +138,9 @@ function App() {
         </>;
       break;
     default:
-      const shugarinState = gameState.state === 'Game' ?
+      const shugarinState = isShugarinConfused ?
+        'Confused' :
+        gameState.state === 'Game' ?
         'Moving' :
         gameState.state === 'Result' && gameState.success ?
         'Success' : 
@@ -148,8 +165,8 @@ function App() {
             {
               gameState.state === 'Game' ?
                 <>
-                  <button id="ToLeft" onClick={() => setShugarinDirection('MoreLeft')}>もっと左</button>
-                  <button id="ToRight" onClick={() => setShugarinDirection('MoreRight')}>もっと右</button>
+                  <button id="ToLeft" onClick={() => advice('MoreLeft')}>もっと左</button>
+                  <button id="ToRight" onClick={() => advice('MoreRight')}>もっと右</button>
                 </> :
                 <button onClick={() => resetGame()}>もう一度遊ぶ</button>
             }
