@@ -11,6 +11,15 @@
     right: 50%;
 }
 
+.Shugarin.Moving::after {
+    display: block;
+    content: url('sweat_drops.png');
+    width: 4.5vh;
+    position: absolute;
+    top: -4vh;
+    right: 50%;
+}
+
 .Shugarin .ShugarinImage {
     position: relative;
     left: -50%;
