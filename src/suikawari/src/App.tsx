@@ -11,12 +11,40 @@ import startLogo from 'start-logo.png';
 type ShugarinDirection = 'Straight' | 'MoreLeft' | 'MoreRight';
 type GameState = { state: 'Start' } | { state: 'Game'} | { state: 'Result', success: boolean };
 
+const moveDirectionsSource = {
+  straight: [
+    [-0.4, -0.3, -0.2, -0.1, 0, 0.1, 0.2, 0.3, 0.4],
+    [-0.4, -0.3, -0.2, -0.1, 0, 0.2],
+    [-0.2, 0, 0.1, 0.2, 0.3, 0.4],
+    [-0.2, -0.1, 0, 0.1, 0.2, 0.2, 0.3, 0.3, 0.4, 0.5],
+    [-0.4, -0.3, -0.2, -0.1, 0, 0.2],
+    [-0.2, 0, 0.1, 0.2, 0.3, 0.4],
+    [-0.5, -0.4, -0.3, -0.3, -0.2, -0.1, 0, 0.1, 0.2],
+  ],
+  x: [
+    [-0.2, -0.1, 0, 0.1, 0.2, 0.3, 0.5, 1.0, 2.0, 4.0],
+    [-0.2, -0.1, 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 1.0],
+    [-0.3, -0.2, -0.1, 0, 0.2, 0.3, 0.4, 0.5, 1.0, 2.0],
+  ],
+  y: [
+    [-0.1, 0, 0.1, 0.1, 0.2, 0.2, 0.2, 0.3, 0.3, 0.3, 0.3, 0.4, 0.4],
+    [-0.2, -0.1, -0.1, 0.1, 0.2, 0.2, 0.2, 0.3, 0.3, 0.3, 0.3, 0.4, 0.4, 0.5, 0.5],
+  ]
+};
+
 function App() {
+
+  const getMoveDirections = () => ({
+    straight: randomPick(moveDirectionsSource.straight),
+    x: randomPick(moveDirectionsSource.x),
+    y: randomPick(moveDirectionsSource.y)
+  });
 
   const shugarinImageId = 'Shugarin';
   const watermelonImageId = 'Watermelon';
   const [gameState, setGameState] = useState({ state: 'Start' } as GameState);
   const [isHelpPanelVisible, setIsHelpPanelVisible] = useState(false);
+  const [moveDirections, setMoveDirections] = useState(getMoveDirections());
   const [watermelonX, setWatermelonX] = useState(randomNumber(10, 90));
   const [shugarinX, setShugarinX] = useState(randomNumber(10, 90));
   const [shugarinY, setShugarinY] = useState(5);
@@ -30,6 +58,7 @@ function App() {
     setWatermelonX(randomNumber(10, 90));
     setShugarinX(randomNumber(10, 90));
     setShugarinY(5);
+    setMoveDirections(getMoveDirections());
   };
 
   useEffect(() => {
@@ -57,20 +86,25 @@ function App() {
       }
       // 移動中
       else {
-        setShugarinY(prev => prev + randomPick([-0.1, 0, 0.1, 0.1, 0.2, 0.2, 0.2, 0.3, 0.3, 0.3, 0.3, 0.4, 0.4]));
+        console.log(`y: [${moveDirections.y.join(',')}]`);
+        setShugarinY(prev => prev + randomPick(moveDirections.y));
         switch (shugarinDirection) {
           case 'Straight':
-            setShugarinX(prev => prev + randomPick([-0.2, -0.1, 0, 0.1, 0.2]));
+            console.log(`straight: [${moveDirections.straight.join(',')}]`);
+            setShugarinX(prev => prev + randomPick(moveDirections.straight));
             break;
           case 'MoreLeft':
           case 'MoreRight':
-            setShugarinX(prev => prev + (shugarinDirection === 'MoreLeft' ? 1 : -1) * randomPick([-0.2, -0.1, 0, 0.1, 0.2, 0.3, 0.5, 1.0, 2.0, 4.0]));
+            console.log(`x: [${moveDirections.x.join(',')}]`);
+            const direction = (shugarinDirection === 'MoreLeft' ? 1 : -1);
+            setShugarinX(prev => prev + direction * randomPick(moveDirections.x));
             break;
         }
+        setMoveDirections(prev => ({ ...getMoveDirections(), straight: prev.straight }));
       }
     }, 100);
     return () => clearInterval(shugarinAnimation);
-  }, [shugarinY, shugarinDirection, gameState]);
+  }, [shugarinY, shugarinDirection, gameState, moveDirections]);
 
   let content: JSX.Element;
   switch (gameState.state) {
