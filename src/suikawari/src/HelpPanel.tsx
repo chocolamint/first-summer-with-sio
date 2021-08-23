@@ -15,6 +15,9 @@ export default function HelpPanel(props: { isVisible: boolean, onCloseButtonClic
             <p>
                 しゅがりんと初めてのすいか割りを楽しむなの<span className="emoticon">♡</span>
             </p>
+            <p>
+                あどばいすしすぎると、しゅがりんが混乱しちゃうなの<span className="emoticon">(U＞△＜U)</span>
+            </p>
             <h2>Special Thanks <span className="emoticon">(Ｕ´ ' ᴗ &lt;`Ｕ)ミ☆</span></h2>
             <ul>
                 {specialThanks.map(x => <li><a href={x[0]} target="_blank" rel="noreferrer">{x[1]}</a></li>)}

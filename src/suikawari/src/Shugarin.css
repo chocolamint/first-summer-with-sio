@@ -2,10 +2,19 @@
     position: absolute;
 }
 
-.Shugarin img {
+.Shugarin.Confused::after {
+    display: block;
+    content: url('question.png');
+    width: 4.5vh;
+    position: absolute;
+    top: -4.5vh;
+    right: 50%;
+}
+
+.Shugarin .ShugarinImage {
     position: relative;
     left: -50%;
     top: -50%;
-    height: 13vh;
+    height: 13.5vh;
     width: auto;
 }
