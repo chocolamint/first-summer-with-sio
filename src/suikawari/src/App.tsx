@@ -123,12 +123,17 @@ function App() {
         </>;
       break;
     default:
+      const shugarinState = gameState.state === 'Game' ?
+        'Moving' :
+        gameState.state === 'Result' && gameState.success ?
+        'Success' : 
+        'Fail';
       content = <>
           <header>
             <HelpButton onClick={() => setIsHelpPanelVisible(true)} />
           </header>
           <main>
-            <Shugarin imageId={shugarinImageId} x={shugarinX} y={shugarinY} />
+            <Shugarin imageId={shugarinImageId} x={shugarinX} y={shugarinY} state={shugarinState} />
             <Watermelon imageId={watermelonImageId} x={watermelonX} y={57} state={watermelonState} />
             <HelpPanel isVisible={isHelpPanelVisible} onCloseButtonClick={() => setIsHelpPanelVisible(false)} />
             {
